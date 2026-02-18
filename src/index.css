@@ -1,0 +1,101 @@
+@import "tailwindcss";
+:root {
+  --bg: #f8fafc;
+  --primary: #4f46e5;      /* Indigo */
+  --secondary: #06b6d4;    /* Cyan */
+  --accent: #22c55e;      /* Green (positive) */
+  --soft: #eef2ff;
+  --text: #0f172a;
+  --muted: #64748b;
+}
+/* reusable card style */
+/* 
+.card {
+  background: linear-gradient(
+  135deg,
+  #4f46e5,
+  #06b6d4,
+  #22c55e
+);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+} */
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-lg;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 rounded-full font-semibold text-white
+    bg-gradient-to-r from-indigo-500 to-purple-500
+    hover:scale-105 transition shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 rounded-full font-semibold
+    bg-white text-indigo-600 border border-indigo-200
+    hover:bg-indigo-50 transition;
+  }
+}
+/* ===== 3D SERVICES GRID ===== */
+.services-3d-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  perspective: 1200px;
+}
+
+.service-card-3d {
+  position: relative;
+  height: 280px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.service-card-3d:hover {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  padding: 32px;
+  background: white;
+  box-shadow: 0 25px 60px rgba(99, 102, 241, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* FRONT */
+.card-face.front {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+}
+
+/* BACK */
+.card-face.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: white;
+}
+
+/* ICON */
+.service-icon-3d {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
