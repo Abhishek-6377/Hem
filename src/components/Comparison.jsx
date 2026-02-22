@@ -1,42 +1,83 @@
+import { motion } from "framer-motion";
+
+const features = [
+  {
+    title: "Custom Design",
+    us: "Fully tailored design built for your brand",
+    others: "Template-based layouts",
+  },
+  {
+    title: "SEO-Friendly Structure",
+    us: "Optimized structure for rankings",
+    others: "Basic setup without optimization",
+  },
+  {
+    title: "Clear CTAs",
+    us: "Conversion-focused strategy",
+    others: "Generic button placements",
+  },
+  {
+    title: "Fast Performance",
+    us: "Optimized loading & performance",
+    others: "Unoptimized heavy pages",
+  },
+  {
+    title: "Post-Launch Support",
+    us: "Dedicated support after launch",
+    others: "Limited or paid support",
+  },
+];
+
 export default function Comparison() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="relative py-32 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 overflow-hidden">
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-900">
-            Why We Are Different
+      {/* Soft background glow */}
+      <div className="absolute -top-32 left-1/3 w-[420px] h-[420px] bg-indigo-300/30 blur-[120px]" />
+
+      <div className="relative max-w-6xl mx-auto px-6">
+
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+            Why We’re <span className="text-indigo-600">Different</span>
           </h2>
-          <p className="mt-4 text-slate-600">
-            Simple comparison to help you make the right decision.
+          <p className="mt-4 text-slate-600 text-lg">
+            A smarter approach compared to the typical market offering.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse rounded-2xl overflow-hidden shadow-lg">
-            <thead>
-              <tr className="bg-gradient-to-r from-indigo-500 to-cyan-500 text-white">
-                <th className="p-4 text-left">Feature</th>
-                <th className="p-4">Us</th>
-                <th className="p-4">Others</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white">
-              {[
-                ["Custom Design", "✔", "✖"],
-                ["SEO-Friendly Structure", "✔", "✖"],
-                ["Clear CTAs", "✔", "✖"],
-                ["Fast Performance", "✔", "✖"],
-                ["Post-Launch Support", "✔", "Limited"],
-              ].map((row, i) => (
-                <tr key={i} className="border-b">
-                  <td className="p-4 text-slate-700">{row[0]}</td>
-                  <td className="p-4 text-center text-green-600 font-bold">{row[1]}</td>
-                  <td className="p-4 text-center text-slate-500">{row[2]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Comparison Rows */}
+        <div className="space-y-8">
+          {features.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="grid md:grid-cols-3 gap-6 items-center bg-white rounded-3xl p-8 shadow-sm border border-slate-100"
+            >
+              {/* Feature Title */}
+              <div className="font-semibold text-slate-900 text-lg">
+                {item.title}
+              </div>
+
+              {/* Us */}
+              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 text-indigo-700 text-sm font-medium">
+                ✔ {item.us}
+              </div>
+
+              {/* Others */}
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-600 text-sm">
+                ✖ {item.others}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
       </div>

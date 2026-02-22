@@ -5,124 +5,145 @@ const services = [
     title: "Website Design & Development",
     desc: "Modern, fast and conversion-focused websites that build trust and generate leads.",
     icon: "🌐",
-    stat: "↑ 3x Leads",
-    statDesc: "After redesign",
   },
   {
     title: "Landing Pages",
     desc: "High-converting landing pages designed for ads, offers and campaigns.",
     icon: "🚀",
-    stat: "↑ 45% CVR",
-    statDesc: "Conversion increase",
   },
   {
     title: "UI/UX Design",
     desc: "Clean, user-friendly interfaces that give positive vibes and smooth experience.",
     icon: "🎨",
-    stat: "↓ 60% Bounce",
-    statDesc: "Better engagement",
   },
   {
     title: "SEO Optimization",
     desc: "Search engine optimized structure and content to rank and get organic traffic.",
     icon: "📈",
-    stat: "#1 Rankings",
-    statDesc: "For key keywords",
   },
   {
     title: "Website Redesign",
     desc: "Upgrade your outdated website into a modern, professional digital asset.",
     icon: "🔄",
-    stat: "↑ 150% Traffic",
-    statDesc: "Post refresh",
   },
   {
     title: "Maintenance & Support",
     desc: "Continuous support, updates and performance optimization for peace of mind.",
     icon: "🛠️",
-    stat: "99.9% Uptime",
-    statDesc: "Guaranteed",
   },
 ];
 
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const card = {
+  hidden: { y: 50, opacity: 0 },
+  show: { y: 0, opacity: 1 },
+};
+
 export default function Services() {
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-32 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 overflow-hidden">
+
+      {/* background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/40 to-cyan-100/40 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center max-w-3xl mx-auto"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
             Services That Drive <span className="text-indigo-600">Real Results</span>
           </h2>
           <p className="mt-4 text-slate-600 text-lg">
-            Strategy, design and performance — all working together.
+            Everything you need to build a strong online presence — designed for growth.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3D Cards */}
-        <div className="mt-20 grid md:grid-cols-3 gap-10 perspective-[1200px]">
-          {services.map((s, i) => (
+        {/* Cards */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mt-20 grid md:grid-cols-3 gap-10"
+        >
+          {services.map((service, i) => (
             <motion.div
               key={i}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: i * 0.1 }}
-              className="relative h-[300px]"
+              variants={card}
+              whileHover={{
+                y: -12,
+                rotateX: 5,
+                rotateY: -5,
+                scale: 1.04,
+              }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="relative bg-white rounded-3xl p-8 shadow-lg border border-slate-100 overflow-hidden"
+              style={{ transformStyle: "preserve-3d" }}
             >
+              {/* animated glow */}
               <motion.div
-                whileHover={{ rotateY: 180 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="relative w-full h-full"
-                style={{
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                {/* FRONT */}
-                <div
-                  className="absolute inset-0 bg-white rounded-3xl p-8 shadow-xl border border-slate-100 flex flex-col justify-center"
-                  style={{ backfaceVisibility: "hidden" }}
-                >
-                  <div className="text-4xl">{s.icon}</div>
-                  <h3 className="mt-4 text-xl font-semibold text-slate-900">
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 text-slate-600">
-                    {s.desc}
-                  </p>
-                </div>
+                className="absolute inset-0 bg-gradient-to-br from-indigo-200 via-cyan-200 to-purple-200 opacity-0"
+                whileHover={{ opacity: 0.6 }}
+                transition={{ duration: 0.4 }}
+              />
 
-                {/* BACK */}
-                <div
-                  className="absolute inset-0 rounded-3xl p-8 shadow-xl
-                             bg-gradient-to-br from-indigo-500 to-cyan-500
-                             text-white flex flex-col justify-center items-center"
-                  style={{
-                    transform: "rotateY(180deg)",
-                    backfaceVisibility: "hidden",
-                  }}
-                >
-                  <h3 className="text-3xl font-bold">{s.stat}</h3>
-                  <p className="mt-2 opacity-90">{s.statDesc}</p>
-                  <div className="mt-4 text-3xl">✨</div>
-                </div>
+              <div className="relative z-10">
 
-              </motion.div>
+                {/* Icon */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-4xl"
+                >
+                  {service.icon}
+                </motion.div>
+
+                <h3 className="mt-4 text-xl font-semibold text-slate-900">
+                  {service.title}
+                </h3>
+
+                <p className="mt-3 text-slate-600">
+                  {service.desc}
+                </p>
+
+                <motion.button
+                  whileHover={{ x: 6 }}
+                  className="mt-6 font-medium text-indigo-600"
+                >
+                  Learn More →
+                </motion.button>
+
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div className="mt-24 text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          className="mt-24 text-center"
+        >
           <motion.button
             animate={{ scale: [1, 1.05, 1] }}
-            whileHover={{ scale:1.13 }}
-            // transition={{ duration: 3, repeat: Infinity }}
+            transition={{ duration: 3, repeat: Infinity }}
             className="px-12 py-5 rounded-full bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500 text-white font-semibold shadow-xl"
           >
             Get Custom Quote
           </motion.button>
-        </div>
+        </motion.div>
 
       </div>
     </section>

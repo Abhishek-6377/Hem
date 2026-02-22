@@ -21,6 +21,7 @@ export default function App() {
 <div className="min-h-screen" style={{ backgroundColor: "" }}>
       <Navbar/>
       <Hero />
+      <About />
       <PainPoints />
       <Services />
       <Industries />
@@ -30,7 +31,6 @@ export default function App() {
       <SampleWork />
       <Comparison />
       <Reviews />
-      <About />
       <Pricing/>
       <FAQ />
       <Contact/>
