@@ -42,6 +42,7 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
+          <h1>TEST DEPLOYMENT 123</h1>
           <h1 className="mx-auto max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight text-[#111111] sm:text-6xl md:text-7xl lg:text-8xl">
             Content that{" "}
             <span className="relative inline-block">
