@@ -59,7 +59,9 @@ const card = {
 
 export default function PainPoints() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 md:py-28">
+    <section 
+      id = "painPoint"
+      className="relative overflow-hidden bg-white py-24 md:py-28">
       {/* Soft background accents */}
       <div className="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-indigo-50/60 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-cyan-50/60 blur-3xl" />

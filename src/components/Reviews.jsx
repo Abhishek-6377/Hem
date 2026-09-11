@@ -502,7 +502,7 @@ export default function Reviews() {
 
         {/* ================= BOTTOM CTA ================= */}
 
-        <motion.div
+        {/* <motion.div
           initial={{
             opacity: 0,
             y: 20,
@@ -532,7 +532,7 @@ export default function Reviews() {
             <ArrowRight size={18} />
           </a>
 
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

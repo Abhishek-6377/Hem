@@ -25,19 +25,19 @@ function HomePage() {
         <Navbar />
         <Hero />
         <About />
+        <Stats />
         <PainPoints />
-        <Services />
         <Industries />
         <Features />
-        <Stats />
+        
         <Process />
         <SampleWork />
         <Comparison />
         <Reviews />
         <Pricing />
         <FAQ />
-        <Contact />
-        <FinalCTA />
+        {/* <Contact /> */}
+        {/* <FinalCTA /> */}
         <Footer />
       </div>
     </>
