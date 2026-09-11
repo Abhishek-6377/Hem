@@ -73,7 +73,7 @@ export default function PainPoints() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl"
+          className="mx-auto max-w-3xl text-center"
         >
           <h2 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 md:text-5xl">
             Empower Your Brand With
@@ -81,7 +81,7 @@ export default function PainPoints() {
             Content You Can Trust
           </h2>
 
-          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
             Great content does more than fill a page. It builds trust,
             communicates your value, and turns visitors into customers.
           </p>
