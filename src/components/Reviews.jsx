@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Quote,
@@ -69,58 +69,263 @@ const colors = [
   "bg-[#315b9d]",
 ];
 
+/*
+  Create many copies.
+
+  The user starts somewhere in the middle,
+  so there are always reviews before and after them.
+*/
+const COPIES = 20;
+
+const loopedReviews = Array.from(
+  { length: COPIES },
+  (_, copyIndex) =>
+    reviews.map((review, reviewIndex) => ({
+      ...review,
+      loopIndex: copyIndex * reviews.length + reviewIndex,
+      realIndex: reviewIndex,
+    }))
+).flat();
+
 export default function Reviews() {
   const sliderRef = useRef(null);
-  const [active, setActive] = useState(1);
+  const initializedRef = useRef(false);
 
-  const scrollToReview = (index) => {
-    if (!sliderRef.current) return;
+  const [active, setActive] = useState(0);
 
-    const cards = sliderRef.current.children;
+  const TOTAL = reviews.length;
 
-    if (!cards[index]) return;
+  /*
+    Start from the middle copy.
+  */
+  const MIDDLE_COPY = Math.floor(COPIES / 2);
 
-    cards[index].scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+  /*
+    Get actual card width including gap.
+  */
+  const getCardWidth = () => {
+    if (!sliderRef.current) return 0;
 
-    setActive(index);
+    const card = sliderRef.current.children[0];
+
+    if (!card) return 0;
+
+    const sliderStyles =
+      window.getComputedStyle(sliderRef.current);
+
+    const gap =
+      parseFloat(sliderStyles.columnGap) ||
+      parseFloat(sliderStyles.gap) ||
+      0;
+
+    return card.offsetWidth + gap;
   };
 
+  /*
+    Get current card index.
+  */
+  const getCurrentIndex = () => {
+    if (!sliderRef.current) return 0;
+
+    const cardWidth = getCardWidth();
+
+    if (!cardWidth) return 0;
+
+    return Math.round(
+      sliderRef.current.scrollLeft / cardWidth
+    );
+  };
+
+  /*
+    Convert any index into 0-5.
+  */
+  const normalizeIndex = (index) => {
+    return ((index % TOTAL) + TOTAL) % TOTAL;
+  };
+
+  /*
+    Put the carousel in the middle.
+  */
+  const initializeSlider = () => {
+    if (!sliderRef.current) return;
+
+    const cardWidth = getCardWidth();
+
+    if (!cardWidth) return;
+
+    const startingIndex =
+      MIDDLE_COPY * TOTAL;
+
+    sliderRef.current.scrollLeft =
+      startingIndex * cardWidth;
+
+    setActive(0);
+
+    initializedRef.current = true;
+  };
+
+  /*
+    Initialize after layout.
+  */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      initializeSlider();
+    }, 150);
+
+    const handleResize = () => {
+      if (!initializedRef.current) return;
+
+      const currentRealIndex = active;
+
+      const cardWidth = getCardWidth();
+
+      if (!cardWidth || !sliderRef.current) return;
+
+      const currentIndex =
+        MIDDLE_COPY * TOTAL + currentRealIndex;
+
+      sliderRef.current.scrollLeft =
+        currentIndex * cardWidth;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener(
+        "resize",
+        handleResize
+      );
+    };
+  }, []);
+
+  /*
+    Handle manual scrolling.
+  */
   const handleSliderScroll = () => {
     if (!sliderRef.current) return;
 
-    const sliderCenter = sliderRef.current.getBoundingClientRect().left + sliderRef.current.clientWidth / 2;
-    const cards = Array.from(sliderRef.current.children);
-    const closestIndex = cards.reduce((closest, card, index) => {
-      const cardCenter = card.getBoundingClientRect().left + card.clientWidth / 2;
-      const closestCenter = cards[closest].getBoundingClientRect().left + cards[closest].clientWidth / 2;
+    const currentIndex = getCurrentIndex();
 
-      return Math.abs(cardCenter - sliderCenter) < Math.abs(closestCenter - sliderCenter)
-        ? index
-        : closest;
-    }, 0);
+    const realIndex =
+      normalizeIndex(currentIndex);
 
-    setActive(closestIndex);
+    setActive(realIndex);
+
+    /*
+      IMPORTANT:
+
+      We don't wait until the actual beginning/end.
+
+      We silently move the user back toward
+      the middle when they get too far away.
+
+      Because every section contains identical
+      reviews, this reposition is visually invisible.
+    */
+
+    const lowerLimit = TOTAL * 3;
+    const upperLimit = TOTAL * 17;
+
+    const cardWidth = getCardWidth();
+
+    if (!cardWidth) return;
+
+    if (currentIndex < lowerLimit) {
+      const newIndex =
+        currentIndex + TOTAL * 10;
+
+      sliderRef.current.scrollLeft =
+        newIndex * cardWidth;
+    }
+
+    if (currentIndex > upperLimit) {
+      const newIndex =
+        currentIndex - TOTAL * 10;
+
+      sliderRef.current.scrollLeft =
+        newIndex * cardWidth;
+    }
   };
 
+  /*
+    NEXT
+  */
+  const nextReview = () => {
+    if (!sliderRef.current) return;
+
+    const currentIndex = getCurrentIndex();
+
+    const cardWidth = getCardWidth();
+
+    if (!cardWidth) return;
+
+    sliderRef.current.scrollTo({
+      left: (currentIndex + 1) * cardWidth,
+      behavior: "smooth",
+    });
+  };
+
+  /*
+    PREVIOUS
+  */
+  const previousReview = () => {
+    if (!sliderRef.current) return;
+
+    const currentIndex = getCurrentIndex();
+
+    const cardWidth = getCardWidth();
+
+    if (!cardWidth) return;
+
+    sliderRef.current.scrollTo({
+      left: (currentIndex - 1) * cardWidth,
+      behavior: "smooth",
+    });
+  };
+
+  /*
+    Convert vertical mouse wheel
+    into horizontal scrolling.
+  */
   const handleSliderWheel = (event) => {
-    if (!sliderRef.current || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+    if (!sliderRef.current) return;
+
+    const isVertical =
+      Math.abs(event.deltaY) >
+      Math.abs(event.deltaX);
+
+    if (!isVertical) return;
 
     event.preventDefault();
-    sliderRef.current.scrollLeft += event.deltaY;
+
+    sliderRef.current.scrollLeft +=
+      event.deltaY;
   };
 
-  const nextReview = () => {
-    const next = active >= reviews.length - 1 ? 0 : active + 1;
-    scrollToReview(next);
-  };
+  /*
+    DOT CLICK
 
-  const previousReview = () => {
-    const previous = active <= 0 ? reviews.length - 1 : active - 1;
-    scrollToReview(previous);
+    Always jump to the middle copy.
+    So dots never take the user to
+    the actual beginning/end.
+  */
+  const goToReview = (index) => {
+    if (!sliderRef.current) return;
+
+    const cardWidth = getCardWidth();
+
+    if (!cardWidth) return;
+
+    const targetIndex =
+      MIDDLE_COPY * TOTAL + index;
+
+    sliderRef.current.scrollTo({
+      left: targetIndex * cardWidth,
+      behavior: "smooth",
+    });
+
+    setActive(index);
   };
 
   return (
@@ -129,9 +334,11 @@ export default function Reviews() {
       {/* ================= BACKGROUND ================= */}
 
       <div className="pointer-events-none absolute inset-0">
+
         <div className="absolute -left-40 top-20 h-[420px] w-[420px] rounded-full bg-blue-100/50 blur-[120px]" />
 
         <div className="absolute -right-40 bottom-0 h-[420px] w-[420px] rounded-full bg-orange-100/50 blur-[120px]" />
+
       </div>
 
 
@@ -140,28 +347,48 @@ export default function Reviews() {
         {/* ================= HEADER ================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
           className="mx-auto max-w-3xl text-center"
         >
 
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#203f7a]/10 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#203f7a] shadow-sm">
+
             <PenLine size={14} />
+
             Student Experiences
+
           </div>
 
+
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-[46px] md:leading-[1.15]">
+
             Client Experiences That{" "}
+
             <span className="text-[#203f7a]">
               Speak For Us
             </span>
+
           </h2>
 
+
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+
             Hear directly from students who trusted our expert writers
             for assignments, essays, dissertations and research work.
+
           </p>
 
         </motion.div>
@@ -171,23 +398,33 @@ export default function Reviews() {
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
 
+          {/* Verified */}
+
           <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
+
             <CheckCircle2
               size={17}
               className="text-green-600"
             />
+
             Verified Experiences
+
           </div>
+
+
+          {/* Rating */}
 
           <div className="flex items-center gap-1">
 
             {[1, 2, 3, 4, 5].map((star) => (
+
               <Star
                 key={star}
                 size={16}
                 fill="#f59e0b"
                 className="text-[#f59e0b]"
               />
+
             ))}
 
             <span className="ml-2 text-sm font-semibold text-slate-700">
@@ -196,16 +433,17 @@ export default function Reviews() {
 
           </div>
 
+
           <div className="text-sm font-medium text-slate-600">
+
             Trusted Academic Writing Support
+
           </div>
 
         </div>
 
 
-        {/* ================================================= */}
-        {/*                    CAROUSEL                       */}
-        {/* ================================================= */}
+        {/* ================= CAROUSEL ================= */}
 
         <div className="relative mt-14">
 
@@ -239,7 +477,9 @@ export default function Reviews() {
               lg:flex
             "
           >
+
             <ArrowLeft size={20} />
+
           </button>
 
 
@@ -273,7 +513,9 @@ export default function Reviews() {
               lg:flex
             "
           >
+
             <ArrowRight size={20} />
+
           </button>
 
 
@@ -300,32 +542,40 @@ export default function Reviews() {
             "
           >
 
-            {reviews.map((review, index) => (
+            {loopedReviews.map((review, index) => (
 
               <motion.article
-                key={review.name}
+                key={`${review.name}-${index}`}
+
                 initial={{
                   opacity: 0,
-                  y: 25,
+                  y: 20,
                 }}
+
                 whileInView={{
                   opacity: 1,
                   y: 0,
                 }}
+
                 viewport={{
                   once: true,
+                  amount: 0.15,
                 }}
+
                 transition={{
-                  delay: index * 0.08,
-                  duration: 0.5,
+                  duration: 0.45,
+                  delay:
+                    (review.realIndex % 3) *
+                    0.06,
                 }}
+
                 className="
                   group
                   relative
                   flex
                   w-[88%]
                   shrink-0
-                  snap-center
+                  snap-start
                   flex-col
                   rounded-[24px]
                   border
@@ -339,7 +589,6 @@ export default function Reviews() {
                   sm:w-[70%]
 
                   lg:w-[calc((100%-48px)/3)]
-                  lg:snap-center
                   lg:p-7
 
                   hover:-translate-y-1
@@ -347,61 +596,88 @@ export default function Reviews() {
                 "
               >
 
-                {/* Top orange line */}
+                {/* Top orange/blue line */}
 
-                <div className="absolute left-0 right-0 top-0 h-1 rounded-t-[24px] bg-gradient-to-r from-[#203f7a] to-[#f57c00] opacity-0 transition group-hover:opacity-100" />
+                <div
+                  className="
+                    absolute
+                    left-0
+                    right-0
+                    top-0
+                    h-1
+                    rounded-t-[24px]
+                    bg-gradient-to-r
+                    from-[#203f7a]
+                    to-[#f57c00]
+                    opacity-0
+                    transition
+                    group-hover:opacity-100
+                  "
+                />
 
 
-                {/* QUOTE */}
+                {/* ================= QUOTE + STARS ================= */}
 
                 <div className="mb-5 flex items-start justify-between">
 
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#edf3fa] text-[#203f7a]">
+
                     <Quote
                       size={24}
                       fill="currentColor"
                     />
+
                   </div>
 
-
-                  {/* Stars */}
 
                   <div className="flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        size={15}
-                        fill="#f59e0b"
-                        className="text-[#f59e0b]"
-                      />
-                    ))}
+
+                    {[1, 2, 3, 4, 5].map(
+                      (star) => (
+
+                        <Star
+                          key={star}
+                          size={15}
+                          fill="#f59e0b"
+                          className="text-[#f59e0b]"
+                        />
+
+                      )
+                    )}
+
                   </div>
 
                 </div>
 
 
-                {/* SERVICE */}
+                {/* ================= SERVICE ================= */}
 
                 <div className="mb-4">
+
                   <span className="rounded-full bg-orange-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#e87500]">
+
                     {review.service}
+
                   </span>
+
                 </div>
 
 
-                {/* TEXT */}
+                {/* ================= TEXT ================= */}
 
                 <p className="flex-1 text-[14px] leading-7 text-slate-600">
+
                   “{review.text}”
+
                 </p>
 
 
-                {/* DIVIDER */}
+                {/* ================= DIVIDER ================= */}
 
                 <div className="my-6 h-px bg-slate-100" />
 
 
-                {/* USER */}
+                {/* ================= USER ================= */}
 
                 <div className="flex items-center gap-3">
 
@@ -414,28 +690,38 @@ export default function Reviews() {
                       items-center
                       justify-center
                       rounded-full
-                      ${colors[index]}
+                      ${colors[review.realIndex]}
                       text-sm
                       font-bold
                       text-white
                     `}
                   >
+
                     {review.initials}
+
                   </div>
 
 
                   <div className="min-w-0">
 
                     <h3 className="text-sm font-bold text-slate-900">
+
                       {review.name}
+
                     </h3>
 
+
                     <p className="text-xs text-slate-500">
+
                       {review.role}
+
                     </p>
 
+
                     <p className="mt-0.5 truncate text-[11px] font-medium text-[#203f7a]">
+
                       {review.university}
+
                     </p>
 
                   </div>
@@ -449,22 +735,59 @@ export default function Reviews() {
           </div>
 
 
-          {/* MOBILE ARROWS */}
+          {/* ================= MOBILE ARROWS ================= */}
 
           <div className="mt-2 flex justify-center gap-3 lg:hidden">
 
             <button
               onClick={previousReview}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#203f7a] shadow-sm transition hover:bg-[#203f7a] hover:text-white"
+              aria-label="Previous review"
+              className="
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                text-[#203f7a]
+                shadow-sm
+                transition
+                hover:bg-[#203f7a]
+                hover:text-white
+              "
             >
+
               <ArrowLeft size={18} />
+
             </button>
+
 
             <button
               onClick={nextReview}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#203f7a] shadow-sm transition hover:bg-[#203f7a] hover:text-white"
+              aria-label="Next review"
+              className="
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-slate-200
+                bg-white
+                text-[#203f7a]
+                shadow-sm
+                transition
+                hover:bg-[#203f7a]
+                hover:text-white
+              "
             >
+
               <ArrowRight size={18} />
+
             </button>
 
           </div>
@@ -480,13 +803,16 @@ export default function Reviews() {
 
             <button
               key={index}
-              onClick={() => scrollToReview(index)}
+              onClick={() =>
+                goToReview(index)
+              }
               aria-label={`Go to review ${index + 1}`}
               className={`
                 h-2
                 rounded-full
                 transition-all
                 duration-300
+
                 ${
                   active === index
                     ? "w-7 bg-[#203f7a]"
@@ -498,41 +824,6 @@ export default function Reviews() {
           ))}
 
         </div>
-
-
-        {/* ================= BOTTOM CTA ================= */}
-
-        {/* <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.5,
-          }}
-          className="mx-auto mt-12 max-w-3xl rounded-2xl bg-[#203f7a] px-6 py-6 text-center shadow-[0_15px_40px_rgba(32,63,122,0.16)] sm:px-8"
-        >
-
-          <p className="text-sm text-white/70">
-            Ready to work with an expert writer?
-          </p>
-
-          <a
-            href="#order"
-            className="mt-2 inline-flex items-center gap-2 text-base font-bold text-white transition hover:text-orange-300"
-          >
-            Find Your Expert Writer
-            <ArrowRight size={18} />
-          </a>
-
-        </motion.div> */}
 
       </div>
     </section>
