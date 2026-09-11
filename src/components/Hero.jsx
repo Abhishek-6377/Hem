@@ -2,59 +2,133 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="pt-32 pb-24 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-        
-        {/* Text */}
-        <motion.div
-          initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-        >
-          <h1 className="text-5xl font-bold leading-tight text-slate-900">
-            Grow Your Business with  
-            <span className="text-indigo-600"> High-Converting </span>
-            Digital Solutions
-          </h1>
+    <section className="relative overflow-hidden bg-[#f8f7f2] pt-32 pb-24">
+      {/* Background Grid */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
 
-          <p className="mt-6 text-lg text-slate-600">
-            We design, build and scale modern websites that attract,
-            engage and convert real customers.
+      {/* Decorative Glow */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.7 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-lime-300/20 blur-3xl"
+      />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
+
+        {/* Small Label */}
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-7 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-5 py-2 text-sm font-medium text-slate-700 backdrop-blur-sm"
+        >
+          <span className="h-2 w-2 rounded-full bg-lime-400" />
+          Content that makes your business stand out
+        </motion.div>
+
+        {/* Heading */}
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="mx-auto max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight text-[#111111] sm:text-6xl md:text-7xl lg:text-8xl">
+            Content that{" "}
+            <span className="relative inline-block">
+              connects
+              <motion.span
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 0.8, duration: 0.7 }}
+                className="absolute -bottom-2 left-0 h-2 rounded-full bg-lime-400"
+              />
+            </span>{" "}
+            with your audience
+          </h1>
+        </motion.div>
+
+        {/* Description */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.25, duration: 0.7 }}
+          className="mx-auto mt-8 max-w-3xl"
+        >
+          <p className="text-lg leading-8 text-slate-600 md:text-xl">
+            We create strategic content that helps businesses attract attention,
+            build trust, and turn visitors into real customers.
           </p>
-           {/* FEATURES */}
-          <div className="mt-8 space-y-4 text-slate-700">
-            <div className="flex gap-3">
-              <span className="text-indigo-500 font-bold">✓</span>
-              <span><strong>100% Human-Crafted</strong> (Zero AI plagiarism)</span>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-indigo-500 font-bold">✓</span>
-              <span><strong>Keyword-Integrated</strong> (Not stuffed)</span>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-indigo-500 font-bold">✓</span>
-              <span><strong>Guaranteed Delivery</strong> (On time, every time)</span>
-            </div>
+
+          <p className="mt-2 text-lg leading-8 text-slate-600 md:text-xl">
+            From SEO-focused articles to compelling website copy, every word
+            is crafted with your brand and audience in mind.
+          </p>
+        </motion.div>
+
+        {/* Feature Points */}
+        <motion.div
+          initial={{ y: 25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.7 }}
+          className="mx-auto mt-9 flex max-w-3xl flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-medium text-slate-700"
+        >
+          <div className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-lime-300">
+              ✓
+            </span>
+            Human-crafted content
           </div>
 
-          <div className="mt-8 flex gap-4">
-            <button className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-semibold shadow-lg">
-              Get Started Today
-            </button>
+          <div className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-lime-300">
+              ✓
+            </span>
+            SEO-focused strategy
+          </div>
 
-            <button className="px-8 py-3 rounded-full border border-indigo-500 text-indigo-600">
-              View Our Work
-            </button>
+          <div className="flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-lime-300">
+              ✓
+            </span>
+            Delivered on time
           </div>
         </motion.div>
 
-        {/* Visual */}
-        {/* <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="bg-white rounded-3xl shadow-xl p-8"
+        {/* CTA — UNCHANGED */}
+        <motion.div
+          initial={{ y: 25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.55, duration: 0.7 }}
+          className="mt-10 flex justify-center gap-4"
         >
-          <div className="h-64 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-2xl"></div>
-        </motion.div> */}
+          <button className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-semibold shadow-lg">
+            Get Started Today
+          </button>
+
+          <button className="px-8 py-3 rounded-full border border-indigo-500 text-indigo-600">
+            View Our Work
+          </button>
+        </motion.div>
+
+        {/* Bottom Trust Text */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9 }}
+          className="mt-8 text-sm text-slate-400"
+        >
+          Strategy • Creativity • Results
+        </motion.p>
       </div>
     </section>
   );

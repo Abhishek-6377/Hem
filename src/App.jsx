@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import Hero from "./components/Hero";
 import PainPoints from "./components/PainPoints";
 import Services from "./components/Services";
@@ -15,28 +16,40 @@ import Navbar from "./components/Navbar";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Pricing from "./components/Pricing";
-export default function App() {
+import ContactPage from "./pages/Contact";
+
+function HomePage() {
   return (
     <>
-<div className="min-h-screen" style={{ backgroundColor: "" }}>
-      <Navbar/>
-      <Hero />
-      <About />
-      <PainPoints />
-      <Services />
-      <Industries />
-      <Features />
-      <Stats />
-      <Process />
-      <SampleWork />
-      <Comparison />
-      <Reviews />
-      <Pricing/>
-      <FAQ />
-      <Contact/>
-      <FinalCTA />
-      <Footer />
+      <div className="min-h-screen" style={{ backgroundColor: "" }}>
+        <Navbar />
+        <Hero />
+        <About />
+        <PainPoints />
+        <Services />
+        <Industries />
+        <Features />
+        <Stats />
+        <Process />
+        <SampleWork />
+        <Comparison />
+        <Reviews />
+        <Pricing />
+        <FAQ />
+        <Contact />
+        <FinalCTA />
+        <Footer />
       </div>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="*" element={<HomePage />} />
+    </Routes>
   );
 }
