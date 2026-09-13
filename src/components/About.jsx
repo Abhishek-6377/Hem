@@ -85,13 +85,13 @@ export default function About() {
                 lg:text-[64px]
               "
             >
-              We turn ideas
+              ContentVanta: 
               <br />
 
               <span className="relative inline-block">
-                into
+                Your Expert Content
                 <span className="ml-3 bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                  impact.
+                   Writing Partner
                 </span>
 
                 {/* little underline */}
@@ -101,15 +101,14 @@ export default function About() {
 
             {/* Paragraph */}
             <p className="mt-9 max-w-xl text-lg leading-8 text-slate-600">
-              We are a team of thinkers, writers, designers, and developers
-              who believe that great digital experiences begin with a great
-              idea — and an even better story.
+              ContentVanta brings experienced content writers and an expert content team together.
+              We create human-led content backed by industry research and strong editorial quality. 
+              Every piece is shaped around your audience, goals, and brand voice.
             </p>
 
             <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
-              From shaping your message to building the technology behind it,
-              we bring strategy, creativity, and execution together to create
-              digital experiences people remember.
+              Need content at scale? Our trusted writers can refine an AI-assisted draft or build content from scratch. 
+              A client-focused process, reliable delivery, and dedicated support keep every project moving smoothly.
             </p>
 
             {/* Bottom information */}

@@ -34,7 +34,7 @@ function HomePage() {
         <SampleWork />
         <Comparison />
         <Reviews />
-        <Pricing />
+        {/* <Pricing /> */}
         <FAQ />
         {/* <Contact /> */}
         {/* <FinalCTA /> */}

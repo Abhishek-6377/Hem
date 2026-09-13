@@ -1,58 +1,57 @@
 import { motion } from "framer-motion";
 import {
-  PenLine,
-  Search,
-  Zap,
-  Target,
-  MessageSquareText,
-  ShieldCheck,
+  BadgeCheck,
+  Mic2,
+  Wallet,
+  SearchCheck,
+  UsersRound,
+  RefreshCcw,
 } from "lucide-react";
 
 const features = [
   {
-    title: "Content That Connects",
-    desc: "I create clear, engaging content that speaks directly to your audience and makes your brand easier to understand, trust, and remember.",
-    icon: PenLine,
+    title: "Get Consistent Quality",
+    desc: "Every piece goes through editorial review and quality checks. You get clear, accurate, original content that supports search visibility without keyword stuffing.",
+    icon: BadgeCheck,
   },
   {
-    title: "SEO-Optimized Writing",
-    desc: "Every piece is structured around search intent, relevant keywords, headings, and natural content flow to help your website attract organic traffic.",
-    icon: Search,
+    title: "Keep Your Brand Voice",
+    desc: "Your content should sound like your brand. Our writers follow your tone, audience, messaging, and style for a consistent experience across every page.",
+    icon: Mic2,
   },
   {
-    title: "Fast & Reliable Delivery",
-    desc: "Get well-researched, polished content delivered on time without compromising quality, consistency, or the unique voice of your brand.",
-    icon: Zap,
+    title: "Stay Within Your Budget",
+    desc: "Get professional content without unnecessary costs. Our budget-friendly approach gives you clear pricing, focused deliverables, and quality that fits your content goals.",
+    icon: Wallet,
   },
   {
-    title: "Conversion-Focused Copy",
-    desc: "From landing pages to website copy, every word is written with a purpose—to keep visitors engaged and guide them toward taking action.",
-    icon: Target,
+    title: "Build Authority With Research",
+    desc: "Strong content starts with strong research. We use industry sources, relevant entities, search intent, and expert insights to create credible, useful content.",
+    icon: SearchCheck,
   },
   {
-    title: "Your Brand Voice",
-    desc: "Your content should sound like your business. I adapt tone, style, and messaging so every article or page feels genuinely aligned with your brand.",
-    icon: MessageSquareText,
+    title: "Work With Vetted Writers",
+    desc: "Skip unreliable writers and inconsistent drafts. Our vetted human writers bring relevant skills, human-led writing, and industry awareness to every assignment.",
+    icon: UsersRound,
   },
   {
-    title: "Research You Can Trust",
-    desc: "I dig into your industry, audience, and competitors before writing, creating useful and credible content that gives your readers real value.",
-    icon: ShieldCheck,
+    title: "Request Easy Revisions",
+    desc: "Need a change? Just tell us. Our revision process keeps your brief, feedback, and editorial goals aligned until the content feels right for your audience.",
+    icon: RefreshCcw,
   },
 ];
 
 export default function Features() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-indigo-50 py-24 md:py-28">
-      
-      {/* Background decoration */}
+      {/* Background Decoration */}
       <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-indigo-200/30 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-100/30 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6">
-
         {/* Section Heading */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +59,7 @@ export default function Features() {
             transition={{ duration: 0.4 }}
             className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-600"
           >
-            Why Work With Me
+            Why Choose ContentVanta
           </motion.span>
 
           <motion.h2
@@ -68,10 +67,12 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="mt-3 text-4xl font-extrabold tracking-tight text-slate-950 md:text-5xl"
+            className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl"
           >
-            More Than Just{" "}
-            <span className="text-indigo-600">Good Writing</span>
+            Why Businesses Choose ContentVanta{" "}
+            <span className="text-indigo-600">
+              for High-Quality Content
+            </span>
           </motion.h2>
 
           <motion.p
@@ -79,11 +80,11 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-5 text-base leading-7 text-slate-600 md:text-lg"
+            className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-600 md:text-lg"
           >
-            Great content should do more than fill a page. It should build
-            credibility, connect with your audience, improve visibility, and
-            help your business grow.
+            Get researched, reviewed, brand-aligned content built around your
+            business goals. Every feature is designed to solve a real content
+            problem.
           </motion.p>
         </div>
 
@@ -104,7 +105,7 @@ export default function Features() {
                 }}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50 md:p-8"
               >
-                {/* Hover background */}
+                {/* Soft Hover Decoration */}
                 <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-indigo-50 opacity-0 transition-all duration-500 group-hover:scale-150 group-hover:opacity-100" />
 
                 <div className="relative">
@@ -113,17 +114,22 @@ export default function Features() {
                     <Icon size={26} strokeWidth={1.8} />
                   </div>
 
+                  {/* Number */}
+                  <span className="absolute right-0 top-0 text-sm font-bold text-indigo-100 transition-colors duration-300 group-hover:text-indigo-200">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
                   {/* Heading */}
                   <h3 className="mt-6 text-xl font-extrabold leading-snug text-slate-900">
                     {feature.title}
                   </h3>
 
-                  {/* Description - approx 3 to 3.5 lines */}
-                  <p className="mt-3 min-h-[84px] text-[15px] leading-7 text-slate-600">
+                  {/* Description */}
+                  <p className="mt-3 min-h-[105px] text-[15px] leading-7 text-slate-600">
                     {feature.desc}
                   </p>
 
-                  {/* Bottom accent */}
+                  {/* Bottom Accent */}
                   <div className="mt-6 h-1 w-10 rounded-full bg-indigo-600 transition-all duration-300 group-hover:w-20" />
                 </div>
               </motion.div>
@@ -140,7 +146,7 @@ export default function Features() {
           className="mt-16 text-center"
         >
           <p className="mb-5 text-sm text-slate-500">
-            Ready to turn your ideas into content that works?
+            Ready to get content that works for your business?
           </p>
 
           <a

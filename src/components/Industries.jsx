@@ -1,20 +1,29 @@
 import { motion } from "framer-motion";
 import {
-  Smartphone,
   Cloud,
+  Smartphone,
   ShoppingBag,
   HeartPulse,
   Landmark,
   Home,
-  GraduationCap,
+  Scale,
   Plane,
+  GraduationCap,
+  Hotel,
   Megaphone,
-  UserRound,
   BriefcaseBusiness,
-  Sparkles,
 } from "lucide-react";
 
 const industries = [
+  {
+    name: "SaaS",
+    icon: Cloud,
+    color: "bg-violet-50 text-violet-600",
+    image:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85",
+    description:
+      "SEO blogs, website copy, product content, and educational resources for SaaS businesses and startups.",
+  },
   {
     name: "Technology",
     icon: Smartphone,
@@ -22,25 +31,16 @@ const industries = [
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=85",
     description:
-      "Clear, engaging content for technology products, platforms, and digital brands.",
+      "Clear, engaging content for technology products, software platforms, and digital brands.",
   },
   {
-    name: "SaaS & Startups",
-    icon: Cloud,
-    color: "bg-violet-50 text-violet-600",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85",
-    description:
-      "Website copy, product content, blogs, and messaging that help startups grow.",
-  },
-  {
-    name: "E-Commerce",
+    name: "E-commerce",
     icon: ShoppingBag,
     color: "bg-pink-50 text-pink-600",
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=85",
     description:
-      "Product descriptions and conversion-focused copy built to turn visitors into buyers.",
+      "Search-friendly product content, category pages, and conversion-focused copy that supports online sales.",
   },
   {
     name: "Healthcare",
@@ -49,7 +49,7 @@ const industries = [
     image:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=85",
     description:
-      "Easy-to-understand, informative content that builds trust with your audience.",
+      "Well-researched, easy-to-understand healthcare content that informs audiences and builds trust.",
   },
   {
     name: "Finance",
@@ -58,7 +58,7 @@ const industries = [
     image:
       "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=85",
     description:
-      "Professional financial content that makes complex topics simple and useful.",
+      "Professional financial content that explains complex topics clearly while supporting search visibility.",
   },
   {
     name: "Real Estate",
@@ -67,16 +67,16 @@ const industries = [
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=85",
     description:
-      "Property descriptions, blogs, landing pages, and marketing content that sells.",
+      "Property content, real estate blogs, service pages, and landing copy designed to attract potential buyers.",
   },
   {
-    name: "Education",
-    icon: GraduationCap,
-    color: "bg-cyan-50 text-cyan-600",
+    name: "Legal",
+    icon: Scale,
+    color: "bg-indigo-50 text-indigo-600",
     image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=85",
     description:
-      "Educational articles, resources, and content designed for better learning.",
+      "Clear and informative legal content that makes complex topics easier for clients to understand.",
   },
   {
     name: "Travel",
@@ -85,55 +85,57 @@ const industries = [
     image:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=85",
     description:
-      "Destination guides and travel stories that inspire people to explore.",
+      "Destination guides, travel blogs, and engaging content that inspires readers to explore new places.",
+  },
+  {
+    name: "Education",
+    icon: GraduationCap,
+    color: "bg-cyan-50 text-cyan-600",
+    image:
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=85",
+    description:
+      "Educational articles, guides, and resources created to make learning content useful and engaging.",
+  },
+  {
+    name: "Hospitality",
+    icon: Hotel,
+    color: "bg-orange-50 text-orange-600",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=85",
+    description:
+      "Hotel, resort, restaurant, and hospitality content that highlights experiences and encourages bookings.",
   },
   {
     name: "Marketing",
     icon: Megaphone,
-    color: "bg-orange-50 text-orange-600",
+    color: "bg-fuchsia-50 text-fuchsia-600",
     image:
       "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=85",
     description:
-      "SEO content, campaigns, landing pages, and brand messaging that gets noticed.",
+      "SEO content, campaign copy, landing pages, and brand messaging that helps businesses get noticed.",
   },
   {
-    name: "Personal Brands",
-    icon: UserRound,
-    color: "bg-indigo-50 text-indigo-600",
-    image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=85",
-    description:
-      "Thought leadership and personal-brand content that sounds authentically you.",
-  },
-  {
-    name: "Agencies",
+    name: "Consulting",
     icon: BriefcaseBusiness,
-    color: "bg-slate-100 text-slate-700",
+    color: "bg-teal-50 text-teal-600",
     image:
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=85",
     description:
-      "Reliable white-label content and client-ready copy for growing agencies.",
-  },
-  {
-    name: "Lifestyle",
-    icon: Sparkles,
-    color: "bg-fuchsia-50 text-fuchsia-600",
-    image:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=85",
-    description:
-      "Fresh lifestyle, culture, wellness, and creative content with personality.",
+      "Research-led blogs, business guides, thought leadership, and website content for consulting firms.",
   },
 ];
 
 export default function Industries() {
   return (
     <section className="relative overflow-hidden bg-white py-24 md:py-28">
-      {/* Decorative background */}
+      {/* Soft Background Decoration */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-72 w-72 rounded-full bg-violet-100/30 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 top-1/2 h-72 w-72 rounded-full bg-cyan-100/30 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -142,7 +144,7 @@ export default function Industries() {
             className="mb-4"
           >
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
-              Industries I Write For
+              Industries We Serve
             </span>
           </motion.div>
 
@@ -151,10 +153,10 @@ export default function Industries() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl"
+            className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl"
           >
-            Content That Fits{" "}
-            <span className="text-blue-600">Your Industry</span>
+            Affordable Content Writing Services{" "}
+            <span className="text-blue-600">for Every Industry</span>
           </motion.h2>
 
           <motion.p
@@ -162,11 +164,11 @@ export default function Industries() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-5 text-base leading-7 text-slate-600 sm:text-lg"
+            className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg"
           >
-            Every industry has its own audience, language, and goals. I create
-            content that understands your business and speaks directly to the
-            people you want to reach.
+            Our content writing service adapts to your industry, audience,
+            search intent, and business goals with relevant, well-researched
+            content.
           </motion.p>
         </div>
 
@@ -187,7 +189,7 @@ export default function Industries() {
                 }}
                 className="group relative h-[190px] overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
               >
-                {/* Image revealed on hover */}
+                {/* Hover Image */}
                 <div className="absolute inset-0">
                   <img
                     src={industry.image}
@@ -196,10 +198,10 @@ export default function Industries() {
                     className="h-full w-full object-cover opacity-0 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100"
                   />
 
-                  <div className="absolute inset-0 bg-slate-950/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-blue-950/75 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
 
-                {/* Default Card */}
+                {/* Default Card Content */}
                 <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center transition-all duration-300 group-hover:scale-95 group-hover:opacity-0">
                   <div
                     className={`mb-5 flex h-16 w-16 items-center justify-center rounded-[20px] ${industry.color}`}

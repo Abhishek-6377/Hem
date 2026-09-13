@@ -6,324 +6,860 @@ import {
   FileCheck2,
   Users,
   ShieldCheck,
-  Globe2,
-  Clock3,
+  Search,
+  PenLine,
   BadgeCheck,
-  BookOpenCheck,
+  Target,
+  Sparkles,
+  Layers3,
+  RefreshCw,
+  Workflow,
+  ScanSearch,
 } from "lucide-react";
 
 const features = [
-  "100% Human-Written Work",
-  "Turnitin-Conscious Content",
-  "AI-Detection Friendly Writing",
-  "Subject Experts for Every Field",
-  "Diploma, Degree & Master's Support",
-  "Real Referencing",
-  "Rubric-Matched Assignments",
-  "Global University Familiarity",
-  "Fast Delivery for All Time Zones",
-  "Free Revisions Included",
-  "Free Plagiarism Report",
-  "Simple Language, Easy to Submit",
-  "Dedicated Writer Communication",
-  "Strict Privacy & Confidentiality",
-  "Affordable Prices + Extra Discounts",
+  "Human-led Writing",
+  "Industry Research",
+  "Search Intent Mapping",
+  "Brand Voice Matching",
+  "Expert Editorial Review",
+  "Fact Checking",
+  "SEO Content Structure",
+  "Original Content",
+  "Buyer Intent Focus",
+  "AI Content Humanization",
+  "Entity & Topic Coverage",
+  "Conversion-Focused Copy",
+  "Revision Support",
+  "Scalable Content Support",
+  "Clear Content Workflow",
 ];
 
 const iconMap = [
+  PenLine,
+  Search,
+  Target,
+  Sparkles,
+  BadgeCheck,
+  ShieldCheck,
+  Layers3,
   FileCheck2,
-  ShieldCheck,
-  BadgeCheck,
+  Target,
+  Sparkles,
+  ScanSearch,
+  ArrowRight,
+  RefreshCw,
   Users,
-  BookOpenCheck,
-  FileCheck2,
-  BadgeCheck,
-  Globe2,
-  Clock3,
-  Check,
-  ShieldCheck,
-  BookOpenCheck,
-  Users,
-  ShieldCheck,
-  BadgeCheck,
+  Workflow,
+];
+
+const comparisonValues = [
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+  "Yes",
+];
+
+const genericValues = [
+  "Varies",
+  "Varies",
+  "Limited",
+  "Varies",
+  "Varies",
+  "Varies",
+  "Varies",
+  "Yes",
+  "Varies",
+  "Limited",
+  "Varies",
+  "Varies",
+  "Varies",
+  "Yes",
+  "Varies",
 ];
 
 export default function Comparison() {
   return (
-    <section className="relative overflow-hidden bg-white py-20 md:py-28">
-      {/* Background */}
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-white
+        py-16
+        md:py-20
+      "
+    >
+      {/* ================= BACKGROUND ================= */}
+
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-40 top-20 h-[450px] w-[450px] rounded-full bg-blue-100/50 blur-[120px]" />
-        <div className="absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-orange-100/40 blur-[120px]" />
+        <div
+          className="
+            absolute
+            -left-40
+            top-10
+            h-[380px]
+            w-[380px]
+            rounded-full
+            bg-indigo-100/40
+            blur-[110px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            -right-40
+            bottom-0
+            h-[380px]
+            w-[380px]
+            rounded-full
+            bg-sky-100/30
+            blur-[110px]
+          "
+        />
       </div>
 
-      <div className="relative mx-auto max-w-[1250px] px-5 sm:px-6 lg:px-8">
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-[1180px]
+          px-5
+          sm:px-6
+          lg:px-8
+        "
+      >
 
-        {/* Heading */}
+        {/* ================= HEADING ================= */}
+
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto mb-12 max-w-4xl text-center md:mb-16"
+          initial={{
+            opacity: 0,
+            y: 18,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.55,
+          }}
+          className="
+            mx-auto
+            mb-9
+            max-w-3xl
+            text-center
+            md:mb-11
+          "
         >
-          <h2 className="text-3xl font-bold tracking-tight text-[#203f7a] sm:text-4xl md:text-[46px] md:leading-[1.15]">
-            What Makes Our Assignment Help{" "}
-            <span className="text-[#f57c00]">Stand Out?</span>
+          <span
+            className="
+              text-[10px]
+              font-bold
+              uppercase
+              tracking-[0.28em]
+              text-indigo-500
+              sm:text-xs
+            "
+          >
+            Why ContentVanta
+          </span>
+
+          <h2
+            className="
+              mt-3
+              text-3xl
+              font-extrabold
+              tracking-tight
+              text-slate-800
+              sm:text-4xl
+              md:text-5xl
+            "
+          >
+            Why ContentVanta Is Built Differently{" "}
+            <span className="text-indigo-500">
+              From Generic Content Services
+            </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg">
-            Students compare services before choosing academic support.
-            Here's a clear look at what you get with us compared with
-            typical assignment providers.
+          <p
+            className="
+              mx-auto
+              mt-4
+              max-w-2xl
+              text-xs
+              leading-6
+              text-slate-500
+              sm:text-sm
+              md:text-[15px]
+            "
+          >
+            Good content needs more than words. We combine
+            research, human expertise, SEO, brand voice, and
+            careful editing in one focused workflow.
           </p>
         </motion.div>
 
-        {/* Main comparison */}
-<div className="grid items-start gap-7 lg:grid-cols-[420px_1fr]">
+        {/* ================= MAIN COMPARISON ================= */}
 
-  {/* ================= LEFT CTA CARD ================= */}
-  <motion.div
-    initial={{ opacity: 0, x: -35 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.7 }}
-    className="overflow-hidden rounded-2xl border border-[#e87500] bg-white shadow-[0_15px_45px_rgba(0,0,0,0.12)]"
-  >
-    {/* Blue Header */}
-    <div className="bg-[#203f7a] px-7 py-7 sm:px-8">
-      <h3 className="text-2xl font-bold leading-tight text-white sm:text-[29px]">
-        Looking For An Expert?
-      </h3>
+        <div
+          className="
+            grid
+            items-start
+            gap-6
+            lg:grid-cols-[340px_1fr]
+          "
+        >
 
-      <p className="mt-2 text-sm font-medium leading-6 text-white/90 sm:text-base">
-        Get your assignment support from experienced academic professionals.
-      </p>
-    </div>
+          {/* ================= LEFT CTA CARD ================= */}
 
-    {/* Benefits */}
-    <div className="space-y-7 px-7 py-8 sm:px-8">
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -25,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.6,
+            }}
+            className="
+              overflow-hidden
+              rounded-2xl
+              border
+              border-indigo-100
+              bg-white
+              shadow-[0_12px_35px_rgba(15,23,42,0.08)]
+            "
+          >
 
-      <div className="flex gap-4">
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#203f7a] text-white">
-          <FileCheck2 size={30} />
-        </div>
+            {/* Header */}
 
-        <div>
-          <p className="text-sm text-slate-500">We'll deliver</p>
-          <p className="text-lg font-bold text-[#203f7a]">
-            100% Original Papers
-          </p>
-        </div>
-      </div>
-
-      <div className="flex gap-4">
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#203f7a] text-white">
-          <Users size={30} />
-        </div>
-
-        <div>
-          <p className="text-sm text-slate-500">You'll always get</p>
-          <p className="text-lg font-bold text-[#203f7a]">
-            Expert Global Writers
-          </p>
-        </div>
-      </div>
-
-      <div className="flex gap-4">
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#203f7a] text-white">
-          <Globe2 size={30} />
-        </div>
-
-        <div>
-          <p className="text-sm text-slate-500">Support across</p>
-          <p className="text-lg font-bold text-[#203f7a]">
-            Global Universities
-          </p>
-        </div>
-      </div>
-
-      <a
-        href="#order"
-        className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#ff7900] to-[#ff922e] px-6 py-4 text-base font-bold text-white shadow-lg transition hover:scale-[1.02]"
-      >
-        Place Your Order
-        <ArrowRight size={21} />
-      </a>
-    </div>
-  </motion.div>
-
-
-  {/* ================= SCROLLABLE COMPARISON ================= */}
-  <div className="min-w-0">
-
-    {/* Header stays outside scroll */}
-    <div className="mb-3 hidden grid-cols-[1fr_105px_120px] gap-3 px-5 md:grid">
-      <div className="text-sm font-semibold text-slate-400">
-        Service Features
-      </div>
-
-      <div className="rounded-lg bg-green-600 px-3 py-2 text-center text-xs font-bold text-white">
-        Our Service
-      </div>
-
-      <div className="rounded-lg bg-red-600 px-3 py-2 text-center text-xs font-bold text-white">
-        Other Providers
-      </div>
-    </div>
-
-
-    {/* ===== SCROLL CONTAINER ===== */}
-    <div
-      className="
-        relative
-        h-[480px]
-        overflow-y-auto
-        overflow-x-hidden
-        pr-3
-
-        scrollbar-thin
-        scrollbar-track-slate-100
-        scrollbar-thumb-[#ff7900]
-
-        [&::-webkit-scrollbar]:w-[6px]
-        [&::-webkit-scrollbar-track]:bg-slate-100
-        [&::-webkit-scrollbar-track]:rounded-full
-        [&::-webkit-scrollbar-thumb]:bg-[#ff7900]
-        [&::-webkit-scrollbar-thumb]:rounded-full
-        [&::-webkit-scrollbar-thumb]:hover:bg-[#e86d00]
-      "
-    >
-
-      <div className="space-y-3">
-
-        {features.map((feature, index) => {
-          const Icon = iconMap[index];
-
-          return (
-            <motion.div
-              key={feature}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.35,
-                delay: index * 0.03,
-              }}
+            <div
               className="
-                group
-                rounded-xl
-                border
-                border-slate-100
-                bg-gradient-to-r
-                from-white
-                to-slate-50
-                p-3
-                shadow-[0_5px_20px_rgba(15,23,42,0.06)]
-                transition
-                hover:border-blue-100
-                hover:shadow-[0_8px_25px_rgba(15,23,42,0.09)]
-                sm:p-4
+                bg-gradient-to-br
+                from-indigo-600
+                to-indigo-500
+                px-6
+                py-6
               "
             >
+              <span
+                className="
+                  text-[9px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-indigo-100
+                "
+              >
+                ContentVanta
+              </span>
 
-              {/* Desktop */}
-              <div className="hidden items-center gap-3 md:grid md:grid-cols-[1fr_105px_120px]">
+              <h3
+                className="
+                  mt-2
+                  text-2xl
+                  font-extrabold
+                  leading-tight
+                  text-white
+                "
+              >
+                Turn Better Content Into Better Growth 
+              </h3>
 
-                {/* Feature */}
-                <div className="flex min-w-0 items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#edf3ff] text-[#203f7a]">
-                    <Icon size={20} />
-                  </div>
+              <p
+                className="
+                  mt-2
+                  text-xs
+                  leading-5
+                  text-white/85
+                  sm:text-sm
+                "
+              >
+                Get content that improves visibility, builds trust,
+                and helps turn readers into customers.
 
-                  <span className="text-sm font-medium text-slate-700">
-                    {feature}
-                  </span>
+              </p>
+            </div>
+
+            {/* Benefits */}
+
+            <div className="space-y-5 px-6 py-6">
+
+              <div className="flex gap-3">
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-indigo-50
+                    text-indigo-600
+                  "
+                >
+                  <PenLine size={20} />
                 </div>
 
-                {/* OUR SERVICE */}
-                <div className="flex h-9 items-center justify-center rounded-md bg-green-50">
-                  <span className="flex items-center gap-1.5 text-xs font-bold text-green-700">
-                    <Check size={15} strokeWidth={3} />
-                    Yes
-                  </span>
-                </div>
+                <div>
+                  <p className="text-[11px] text-slate-400">
+                    We'll delever
+                  </p>
 
-                {/* OTHER PROVIDERS */}
-                <div className="flex h-9 items-center justify-center rounded-md bg-red-50">
-                  <span className="flex items-center gap-1.5 text-xs font-bold text-red-600">
-                    <X size={15} strokeWidth={3} />
-                    Limited
-                  </span>
+                  <p className="text-sm font-bold text-slate-800">
+                    Expert-Led Content
+                  </p>
                 </div>
-
               </div>
 
-
-              {/* Mobile */}
-              <div className="md:hidden">
-
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#edf3ff] text-[#203f7a]">
-                    <Icon size={19} />
-                  </div>
-
-                  <span className="text-sm font-semibold text-slate-800">
-                    {feature}
-                  </span>
+              <div className="flex gap-3">
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-indigo-50
+                    text-indigo-600
+                  "
+                >
+                  <Search size={20} />
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <p className="text-[11px] text-slate-400">
+                    You'll get
+                  </p>
 
-                  <div className="flex items-center justify-center gap-1.5 rounded-md bg-green-50 py-2 text-xs font-bold text-green-700">
-                    <Check size={14} strokeWidth={3} />
-                    Our Service
-                  </div>
-
-                  <div className="flex items-center justify-center gap-1.5 rounded-md bg-red-50 py-2 text-xs font-bold text-red-600">
-                    <X size={14} strokeWidth={3} />
-                    Other Providers
-                  </div>
-
+                  <p className="text-sm font-bold text-slate-800">
+                    Intent-Focused Writing
+                  </p>
                 </div>
               </div>
 
-            </motion.div>
-          );
-        })}
+              <div className="flex gap-3">
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-indigo-50
+                    text-indigo-600
+                  "
+                >
+                  <BadgeCheck size={20} />
+                </div>
 
-      </div>
-    </div>
-  </div>
+                <div>
+                  <p className="text-[11px] text-slate-400">
+                    Support across
+                  </p>
 
-</div>
-        {/* Bottom Trust Strip */}
+                  <p className="text-sm font-bold text-slate-800">
+                    Reliable Delivery
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="#contact"
+                className="
+                  flex
+                  w-full
+                  items-center
+                  justify-center
+                  gap-2
+                  rounded-full
+                  bg-indigo-500
+                  px-5
+                  py-3
+                  text-xs
+                  font-bold
+                  text-white
+                  shadow-md
+                  shadow-indigo-100
+                  transition
+                  hover:-translate-y-0.5
+                  hover:bg-indigo-600
+                  sm:text-sm
+                "
+              >
+                Start Your Content Project
+
+                <ArrowRight size={17} />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* ================= COMPARISON ================= */}
+
+          <div className="min-w-0">
+
+            {/* Desktop Header */}
+
+            <div
+              className="
+                mb-2.5
+                hidden
+                grid-cols-[1fr_100px_110px]
+                gap-2
+                px-4
+                md:grid
+              "
+            >
+              <div
+                className="
+                  flex
+                  items-center
+                  text-xs
+                  font-semibold
+                  text-slate-400
+                "
+              >
+                Factor
+              </div>
+
+              <div
+                className="
+                  rounded-lg
+                  bg-indigo-500
+                  px-2
+                  py-2
+                  text-center
+                  text-[10px]
+                  font-bold
+                  text-white
+                "
+              >
+                ContentVanta
+              </div>
+
+              <div
+                className="
+                  rounded-lg
+                  bg-slate-200
+                  px-2
+                  py-2
+                  text-center
+                  text-[10px]
+                  font-bold
+                  text-slate-600
+                "
+              >
+                Generic Services
+              </div>
+            </div>
+
+            {/* Scroll Container */}
+
+            <div
+              className="
+                relative
+                h-[440px]
+                overflow-y-auto
+                overflow-x-hidden
+                pr-2
+
+                scrollbar-thin
+                scrollbar-track-slate-100
+                scrollbar-thumb-indigo-400
+
+                [&::-webkit-scrollbar]:w-[5px]
+                [&::-webkit-scrollbar-track]:rounded-full
+                [&::-webkit-scrollbar-track]:bg-slate-100
+                [&::-webkit-scrollbar-thumb]:rounded-full
+                [&::-webkit-scrollbar-thumb]:bg-indigo-400
+              "
+            >
+              <div className="space-y-2">
+
+                {features.map((feature, index) => {
+                  const Icon = iconMap[index];
+
+                  return (
+                    <motion.div
+                      key={feature}
+                      initial={{
+                        opacity: 0,
+                        y: 10,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      viewport={{
+                        once: true,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        delay: index * 0.025,
+                      }}
+                      className="
+                        group
+                        rounded-xl
+                        border
+                        border-slate-100
+                        bg-white
+                        p-2.5
+                        shadow-[0_4px_15px_rgba(15,23,42,0.045)]
+                        transition
+                        hover:border-indigo-100
+                        hover:shadow-[0_6px_20px_rgba(15,23,42,0.07)]
+                        sm:p-3
+                      "
+                    >
+
+                      {/* ================= DESKTOP ================= */}
+
+                      <div
+                        className="
+                          hidden
+                          items-center
+                          gap-2.5
+                          md:grid
+                          md:grid-cols-[1fr_100px_110px]
+                        "
+                      >
+
+                        {/* Feature */}
+
+                        <div
+                          className="
+                            flex
+                            min-w-0
+                            items-center
+                            gap-2.5
+                          "
+                        >
+                          <div
+                            className="
+                              flex
+                              h-8
+                              w-8
+                              shrink-0
+                              items-center
+                              justify-center
+                              rounded-lg
+                              bg-indigo-50
+                              text-indigo-500
+                            "
+                          >
+                            <Icon size={17} />
+                          </div>
+
+                          <span
+                            className="
+                              text-xs
+                              font-medium
+                              text-slate-700
+                              lg:text-[13px]
+                            "
+                          >
+                            {feature}
+                          </span>
+                        </div>
+
+                        {/* ContentVanta */}
+
+                        <div
+                          className="
+                            flex
+                            h-8
+                            items-center
+                            justify-center
+                            rounded-md
+                            bg-green-50
+                          "
+                        >
+                          <span
+                            className="
+                              flex
+                              items-center
+                              gap-1
+                              text-[10px]
+                              font-bold
+                              text-green-700
+                            "
+                          >
+                            <Check
+                              size={13}
+                              strokeWidth={3}
+                            />
+
+                            {comparisonValues[index]}
+                          </span>
+                        </div>
+
+                        {/* Generic */}
+
+                        <div
+                          className={`
+                            flex
+                            h-8
+                            items-center
+                            justify-center
+                            rounded-md
+                            ${
+                              genericValues[index] ===
+                              "Limited"
+                                ? "bg-amber-50"
+                                : "bg-slate-50"
+                            }
+                          `}
+                        >
+                          <span
+                            className={`
+                              flex
+                              items-center
+                              gap-1
+                              text-[10px]
+                              font-bold
+                              ${
+                                genericValues[index] ===
+                                "Limited"
+                                  ? "text-amber-600"
+                                  : "text-slate-500"
+                              }
+                            `}
+                          >
+                            {genericValues[index] ===
+                            "Limited" ? (
+                              <X
+                                size={13}
+                                strokeWidth={3}
+                              />
+                            ) : (
+                              <Check
+                                size={13}
+                                strokeWidth={3}
+                              />
+                            )}
+
+                            {genericValues[index]}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* ================= MOBILE ================= */}
+
+                      <div className="md:hidden">
+
+                        <div
+                          className="
+                            mb-2.5
+                            flex
+                            items-center
+                            gap-2.5
+                          "
+                        >
+                          <div
+                            className="
+                              flex
+                              h-8
+                              w-8
+                              shrink-0
+                              items-center
+                              justify-center
+                              rounded-lg
+                              bg-indigo-50
+                              text-indigo-500
+                            "
+                          >
+                            <Icon size={16} />
+                          </div>
+
+                          <span
+                            className="
+                              text-xs
+                              font-semibold
+                              text-slate-800
+                            "
+                          >
+                            {feature}
+                          </span>
+                        </div>
+
+                        <div
+                          className="
+                            grid
+                            grid-cols-2
+                            gap-2
+                          "
+                        >
+
+                          {/* ContentVanta */}
+
+                          <div
+                            className="
+                              flex
+                              items-center
+                              justify-center
+                              gap-1.5
+                              rounded-md
+                              bg-green-50
+                              py-1.5
+                              text-[10px]
+                              font-bold
+                              text-green-700
+                            "
+                          >
+                            <Check
+                              size={13}
+                              strokeWidth={3}
+                            />
+
+                            ContentVanta
+                          </div>
+
+                          {/* Generic */}
+
+                          <div
+                            className={`
+                              flex
+                              items-center
+                              justify-center
+                              gap-1.5
+                              rounded-md
+                              py-1.5
+                              text-[10px]
+                              font-bold
+                              ${
+                                genericValues[index] ===
+                                "Limited"
+                                  ? "bg-amber-50 text-amber-600"
+                                  : "bg-slate-50 text-slate-500"
+                              }
+                            `}
+                          >
+                            {genericValues[index] ===
+                            "Limited" ? (
+                              <X
+                                size={13}
+                                strokeWidth={3}
+                              />
+                            ) : (
+                              <Check
+                                size={13}
+                                strokeWidth={3}
+                              />
+                            )}
+
+                            {genericValues[index]}
+                          </div>
+
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= BOTTOM TRUST STRIP ================= */}
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center text-sm text-slate-500"
+          initial={{
+            opacity: 0,
+            y: 12,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.45,
+          }}
+          className="
+            mx-auto
+            mt-8
+            flex
+            max-w-4xl
+            flex-wrap
+            items-center
+            justify-center
+            gap-x-7
+            gap-y-2.5
+            text-center
+            text-xs
+            text-slate-500
+          "
         >
-          <span className="flex items-center gap-2">
-            <Check className="text-green-600" size={17} />
-            Original Content
+
+          <span className="flex items-center gap-1.5">
+            <Check
+              className="text-green-600"
+              size={15}
+            />
+            Human Written
           </span>
 
-          <span className="flex items-center gap-2">
-            <Check className="text-green-600" size={17} />
-            Expert Writers
+          <span className="flex items-center gap-1.5">
+            <Check
+              className="text-green-600"
+              size={15}
+            />
+            Expert Researched
           </span>
 
-          <span className="flex items-center gap-2">
-            <Check className="text-green-600" size={17} />
-            Global Academic Support
+          <span className="flex items-center gap-1.5">
+            <Check
+              className="text-green-600"
+              size={15}
+            />
+            SEO Focused
           </span>
 
-          <span className="flex items-center gap-2">
-            <Check className="text-green-600" size={17} />
-            Revision Support
+          <span className="flex items-center gap-1.5">
+            <Check
+              className="text-green-600"
+              size={15}
+            />
+            Brand Aligned
           </span>
+
+          <span className="flex items-center gap-1.5">
+            <Check
+              className="text-green-600"
+              size={15}
+            />
+            Editorially Reviewed
+          </span>
+
         </motion.div>
       </div>
     </section>

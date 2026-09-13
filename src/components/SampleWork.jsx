@@ -3,60 +3,35 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "SaaS Blog",
-    category: "SaaS & Technology",
+    title: "SEO Blog Article",
+    category: "Content Writing",
+    image:
+      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1000&q=85",
+    desc: "A search-focused blog built around keyword intent, useful answers, natural entity coverage, and strong readability. The goal is simple: help readers first while giving search engines clear context.",
+    tags: ["SEO Optimized", "Human Written", "Expert Researched"],
+  },
+  {
+    title: "Website Service Page",
+    category: "Website Content",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85",
+    desc: "A clear service page that explains what you offer, why it matters, and what readers should do next. Strong messaging meets search relevance without making the copy feel stuffed.",
+    tags: ["Conversion Focused", "Brand Focused", "Human Edited"],
+  },
+  {
+    title: "B2B Content",
+    category: "B2B Writing",
     image:
       "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85",
-    desc: "A detailed, easy-to-read SaaS article written to explain a complex product while keeping readers engaged. The content combines research, SEO structure, and a natural brand voice to educate users and build product trust.",
-    tags: ["2,000+ Words", "100% Original", "SEO Ready"],
-  },
-  {
-    title: "Healthcare Article",
-    category: "Healthcare",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85",
-    desc: "Patient-friendly healthcare content that turns complicated information into simple, useful explanations. The article focuses on clarity, credibility, and an approachable tone without making the subject feel overly technical.",
-    tags: ["1,800+ Words", "Well Researched", "Reader Friendly"],
-  },
-  {
-    title: "FinTech Guide",
-    category: "Finance & FinTech",
-    image:
-      "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1000&q=85",
-    desc: "A long-form financial guide created to make a complex topic easier for everyday readers to understand. It combines structured research, clear explanations, and SEO-focused formatting for better visibility and engagement.",
-    tags: ["2,500+ Words", "Expert Research", "SEO Focused"],
-  },
-  {
-    title: "E-Commerce Copy",
-    category: "E-Commerce",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
-    desc: "Conversion-focused product content designed to highlight benefits instead of simply listing features. The copy uses clear language, persuasive messaging, and customer-focused positioning to encourage confident buying decisions.",
-    tags: ["Conversion Copy", "Original Content", "Brand Voice"],
-  },
-  {
-    title: "Travel Guide",
-    category: "Travel & Lifestyle",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85",
-    desc: "An engaging destination guide written to inspire readers while giving them practical information they can actually use. The content blends storytelling, useful recommendations, and search-friendly structure in one experience.",
-    tags: ["2,000+ Words", "Human Written", "SEO Optimized"],
-  },
-  {
-    title: "Personal Brand Article",
-    category: "Personal Branding",
-    image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=85",
-    desc: "A thought-leadership article created around a personal brand's expertise, opinions, and unique perspective. The writing keeps the personality authentic while positioning the individual as knowledgeable and trustworthy in their field.",
-    tags: ["Thought Leadership", "Unique Voice", "Original Copy"],
+    desc: "Research-led B2B content written for decision-makers who need more than surface-level information. It brings together industry context, expert insights, buyer intent, and a natural professional voice.",
+    tags: ["Expert Researched", "Original Content", "AI Search Ready"],
   },
 ];
 
 /*
   Create many copies of the projects.
-
-  The carousel starts in the middle.
-  This makes the carousel feel genuinely infinite.
+  The carousel starts in the middle,
+  creating a smooth infinite-loop effect.
 */
 const COPIES = 20;
 
@@ -93,8 +68,9 @@ export default function SampleWork() {
 
     if (!card) return 0;
 
-    const styles =
-      window.getComputedStyle(carouselRef.current);
+    const styles = window.getComputedStyle(
+      carouselRef.current
+    );
 
     const gap =
       parseFloat(styles.columnGap) ||
@@ -120,7 +96,7 @@ export default function SampleWork() {
   };
 
   /*
-    Convert any index to the original 0-5 range.
+    Convert any index to the original project range.
   */
   const normalizeIndex = (index) => {
     return ((index % TOTAL) + TOTAL) % TOTAL;
@@ -171,10 +147,7 @@ export default function SampleWork() {
         currentIndex * cardWidth;
     };
 
-    window.addEventListener(
-      "resize",
-      handleResize
-    );
+    window.addEventListener("resize", handleResize);
 
     return () => {
       clearTimeout(timer);
@@ -187,13 +160,12 @@ export default function SampleWork() {
   }, []);
 
   /*
-    Detect the card closest to the center.
+    Detect the current card.
   */
   const handleScroll = () => {
     if (!carouselRef.current) return;
 
-    const currentIndex =
-      getCurrentIndex();
+    const currentIndex = getCurrentIndex();
 
     const realIndex =
       normalizeIndex(currentIndex);
@@ -203,15 +175,6 @@ export default function SampleWork() {
     const cardWidth = getCardWidth();
 
     if (!cardWidth) return;
-
-    /*
-      Keep the user away from the actual
-      beginning/end of the repeated array.
-
-      The reposition happens between
-      identical cards, so the user won't
-      notice it.
-    */
 
     const lowerLimit = TOTAL * 3;
     const upperLimit = TOTAL * 17;
@@ -239,17 +202,13 @@ export default function SampleWork() {
   const nextProject = () => {
     if (!carouselRef.current) return;
 
-    const currentIndex =
-      getCurrentIndex();
-
+    const currentIndex = getCurrentIndex();
     const cardWidth = getCardWidth();
 
     if (!cardWidth) return;
 
     carouselRef.current.scrollTo({
-      left:
-        (currentIndex + 1) *
-        cardWidth,
+      left: (currentIndex + 1) * cardWidth,
       behavior: "smooth",
     });
   };
@@ -260,24 +219,19 @@ export default function SampleWork() {
   const previousProject = () => {
     if (!carouselRef.current) return;
 
-    const currentIndex =
-      getCurrentIndex();
-
+    const currentIndex = getCurrentIndex();
     const cardWidth = getCardWidth();
 
     if (!cardWidth) return;
 
     carouselRef.current.scrollTo({
-      left:
-        (currentIndex - 1) *
-        cardWidth,
+      left: (currentIndex - 1) * cardWidth,
       behavior: "smooth",
     });
   };
 
   /*
     Click on a dot.
-    Always jump to the middle copy.
   */
   const scrollToCard = (index) => {
     if (!carouselRef.current) return;
@@ -290,8 +244,7 @@ export default function SampleWork() {
       MIDDLE_COPY * TOTAL + index;
 
     carouselRef.current.scrollTo({
-      left:
-        targetIndex * cardWidth,
+      left: targetIndex * cardWidth,
       behavior: "smooth",
     });
 
@@ -299,8 +252,8 @@ export default function SampleWork() {
   };
 
   /*
-    Convert mouse wheel movement
-    into horizontal scrolling.
+    Convert vertical mouse wheel movement
+    into horizontal carousel scrolling.
   */
   const handleWheel = (event) => {
     if (!carouselRef.current) return;
@@ -327,212 +280,173 @@ export default function SampleWork() {
         from-white
         via-indigo-50/20
         to-white
-        py-24
-        md:py-28
+        py-16
+        md:py-20
       "
     >
-
       {/* ================= BACKGROUND ================= */}
 
       <div className="pointer-events-none absolute inset-0">
 
-        <div className="
-          absolute
-          left-1/2
-          top-0
-          h-[500px]
-          w-[500px]
-          -translate-x-1/2
-          rounded-full
-          bg-indigo-100/50
-          blur-3xl
-        " />
-
-        <div className="
-          absolute
-          right-0
-          top-1/3
-          h-72
-          w-72
-          rounded-full
-          bg-sky-100/40
-          blur-3xl
-        " />
-
-        <div className="
-          absolute
-          bottom-0
-          left-0
-          h-72
-          w-72
-          rounded-full
-          bg-violet-100/40
-          blur-3xl
-        " />
+        <div
+          className="
+            absolute
+            left-1/2
+            top-0
+            h-[380px]
+            w-[380px]
+            -translate-x-1/2
+            rounded-full
+            bg-indigo-100/40
+            blur-3xl
+          "
+        />
 
         <div
-          className="absolute inset-0 opacity-40"
+          className="
+            absolute
+            right-0
+            top-1/3
+            h-56
+            w-56
+            rounded-full
+            bg-sky-100/30
+            blur-3xl
+          "
+        />
+
+        <div
+          className="
+            absolute
+            bottom-0
+            left-0
+            h-56
+            w-56
+            rounded-full
+            bg-violet-100/30
+            blur-3xl
+          "
+        />
+
+        <div
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundImage:
               "linear-gradient(rgba(99,102,241,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.035) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
+            backgroundSize: "70px 70px",
           }}
         />
-
       </div>
-
 
       <div className="relative z-10">
 
         {/* ================= HEADING ================= */}
 
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="mx-auto max-w-3xl px-5 text-center">
 
           <motion.span
-            initial={{
-              opacity: 0,
-              y: 15,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.5,
-            }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
             className="
-              text-xs
+              text-[10px]
               font-bold
               uppercase
-              tracking-[0.3em]
+              tracking-[0.28em]
               text-indigo-500
+              sm:text-xs
             "
           >
             Selected Work
           </motion.span>
 
-
           <motion.h2
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
             className="
-              mt-4
-              text-4xl
+              mt-3
+              text-3xl
               font-extrabold
               tracking-tight
               text-slate-800
-              sm:text-5xl
-              md:text-6xl
+              sm:text-4xl
+              md:text-5xl
             "
           >
-            Success Stories That{" "}
-
+            Quality Delivered by Our{" "}
             <span className="text-indigo-500">
-              Showcase Our Impact
+              Expert Content Writers
             </span>
-
           </motion.h2>
 
-
           <motion.p
-            initial={{
-              opacity: 0,
-              y: 15,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{
-              duration: 0.5,
+              duration: 0.45,
               delay: 0.1,
             }}
             className="
               mx-auto
-              mt-5
+              mt-4
               max-w-2xl
-              text-sm
-              leading-7
+              text-xs
+              leading-6
               text-slate-500
-              md:text-base
+              sm:text-sm
+              md:text-[15px]
             "
           >
-            Explore how we turn ideas into digital solutions that
-            deliver real business results and long-term growth.
+            See how our vetted content writers turn research,
+            search intent, and brand goals into clear content
+            built for real readers and business results.
           </motion.p>
-
 
           {/* Portfolio Button */}
 
           <motion.a
-            initial={{
-              opacity: 0,
-              y: 15,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{
-              duration: 0.5,
-              delay: 0.2,
+              duration: 0.45,
+              delay: 0.15,
             }}
             href="/portfolio"
             className="
-              mt-7
+              mt-6
               inline-flex
               items-center
               gap-2
               rounded-full
               bg-indigo-500
-              px-7
-              py-3
-              text-sm
+              px-6
+              py-2.5
+              text-xs
               font-semibold
               text-white
-              shadow-lg
+              shadow-md
               shadow-indigo-100
               transition-all
               duration-300
-              hover:-translate-y-1
+              hover:-translate-y-0.5
               hover:bg-indigo-600
+              sm:text-sm
             "
           >
             View Portfolio
 
-            <span className="text-base">
-              →
-            </span>
-
+            <span>→</span>
           </motion.a>
-
         </div>
-
 
         {/* ================= CAROUSEL ================= */}
 
-        <div className="relative mt-14">
+        <div className="relative mt-10 md:mt-12">
 
           {/* LEFT BUTTON */}
 
@@ -541,12 +455,12 @@ export default function SampleWork() {
             aria-label="Previous project"
             className="
               absolute
-              left-5
+              left-4
               top-1/2
               z-30
               hidden
-              h-11
-              w-11
+              h-9
+              w-9
               -translate-y-1/2
               items-center
               justify-center
@@ -554,18 +468,17 @@ export default function SampleWork() {
               border
               border-indigo-100
               bg-white
+              text-sm
               text-indigo-500
-              shadow-lg
-              shadow-indigo-100/50
+              shadow-md
               transition-all
-              hover:scale-110
+              hover:scale-105
               hover:bg-indigo-50
               lg:flex
             "
           >
             ←
           </button>
-
 
           {/* RIGHT BUTTON */}
 
@@ -574,12 +487,12 @@ export default function SampleWork() {
             aria-label="Next project"
             className="
               absolute
-              right-5
+              right-4
               top-1/2
               z-30
               hidden
-              h-11
-              w-11
+              h-9
+              w-9
               -translate-y-1/2
               items-center
               justify-center
@@ -587,18 +500,17 @@ export default function SampleWork() {
               border
               border-indigo-100
               bg-white
+              text-sm
               text-indigo-500
-              shadow-lg
-              shadow-indigo-100/50
+              shadow-md
               transition-all
-              hover:scale-110
+              hover:scale-105
               hover:bg-indigo-50
               lg:flex
             "
           >
             →
           </button>
-
 
           {/* ================= SCROLL AREA ================= */}
 
@@ -610,28 +522,26 @@ export default function SampleWork() {
               flex
               snap-x
               snap-mandatory
-              gap-6
+              gap-5
               overflow-x-auto
-              px-[8vw]
-              pb-8
+              px-[9vw]
+              pb-6
               scroll-smooth
-              lg:px-[15vw]
+              lg:gap-6
+              lg:px-[18vw]
             "
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
             }}
           >
-
             {loopedProjects.map(
               (project, index) => {
-
                 const isActive =
                   project.realIndex ===
                   activeIndex;
 
                 return (
-
                   <motion.article
                     key={`${project.title}-${index}`}
                     onClick={() =>
@@ -640,17 +550,11 @@ export default function SampleWork() {
                       )
                     }
                     animate={{
-                      scale:
-                        isActive
-                          ? 1
-                          : 0.92,
-                      opacity:
-                        isActive
-                          ? 1
-                          : 0.75,
+                      scale: isActive ? 1 : 0.94,
+                      opacity: isActive ? 1 : 0.72,
                     }}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.35,
                       ease: "easeOut",
                     }}
                     className={`
@@ -660,123 +564,133 @@ export default function SampleWork() {
                       snap-center
                       cursor-pointer
                       overflow-hidden
-                      rounded-[30px]
+                      rounded-[24px]
                       border
                       ${
                         isActive
-                          ? "border-indigo-100 bg-white shadow-2xl shadow-indigo-100/70"
-                          : "border-indigo-50 bg-indigo-50/50 shadow-lg shadow-indigo-50/60"
+                          ? "border-indigo-100 bg-white shadow-xl shadow-indigo-100/60"
+                          : "border-indigo-50 bg-indigo-50/40 shadow-md shadow-indigo-50/50"
                       }
-                      w-[82vw]
-                      max-w-[900px]
+                      w-[80vw]
+                      max-w-[780px]
                     `}
                   >
-
-                    <div className="
-                      grid
-                      min-h-[390px]
-                      md:grid-cols-2
-                    ">
+                    <div
+                      className="
+                        grid
+                        min-h-[330px]
+                        md:grid-cols-2
+                      "
+                    >
 
                       {/* ================= CONTENT ================= */}
 
-                      <div className="
-                        flex
-                        flex-col
-                        justify-center
-                        p-8
-                        md:p-10
-                        lg:p-12
-                      ">
+                      <div
+                        className="
+                          flex
+                          flex-col
+                          justify-center
+                          p-6
+                          md:p-8
+                          lg:p-9
+                        "
+                      >
 
                         {/* Category */}
 
-                        <div className="
-                          mb-6
-                          flex
-                          items-center
-                          gap-3
-                        ">
-
-                          <div className="
+                        <div
+                          className="
+                            mb-5
                             flex
-                            h-10
-                            w-10
                             items-center
-                            justify-center
-                            rounded-xl
-                            bg-indigo-100
-                            text-sm
-                            font-bold
-                            text-indigo-600
-                          ">
+                            gap-2.5
+                          "
+                        >
+                          <div
+                            className="
+                              flex
+                              h-8
+                              w-8
+                              items-center
+                              justify-center
+                              rounded-lg
+                              bg-indigo-100
+                              text-xs
+                              font-bold
+                              text-indigo-600
+                            "
+                          >
                             {project.title.charAt(0)}
                           </div>
 
-                          <span className="
-                            text-xs
-                            font-bold
-                            uppercase
-                            tracking-[0.15em]
-                            text-indigo-400
-                          ">
+                          <span
+                            className="
+                              text-[9px]
+                              font-bold
+                              uppercase
+                              tracking-[0.14em]
+                              text-indigo-400
+                              sm:text-[10px]
+                            "
+                          >
                             {project.category}
                           </span>
-
                         </div>
-
 
                         {/* Title */}
 
-                        <h3 className="
-                          text-3xl
-                          font-extrabold
-                          tracking-tight
-                          text-slate-800
-                          md:text-4xl
-                        ">
+                        <h3
+                          className="
+                            text-2xl
+                            font-extrabold
+                            tracking-tight
+                            text-slate-800
+                            sm:text-3xl
+                          "
+                        >
                           {project.title}
                         </h3>
 
-
                         {/* Description */}
 
-                        <p className="
-                          mt-5
-                          max-w-lg
-                          text-sm
-                          leading-7
-                          text-slate-500
-                          md:text-[15px]
-                        ">
+                        <p
+                          className="
+                            mt-4
+                            max-w-lg
+                            text-xs
+                            leading-6
+                            text-slate-500
+                            sm:text-sm
+                          "
+                        >
                           {project.desc}
                         </p>
 
-
                         {/* Highlights */}
 
-                        <p className="
-                          mt-7
-                          text-[10px]
-                          font-bold
-                          uppercase
-                          tracking-[0.2em]
-                          text-indigo-400
-                        ">
+                        <p
+                          className="
+                            mt-5
+                            text-[9px]
+                            font-bold
+                            uppercase
+                            tracking-[0.18em]
+                            text-indigo-400
+                          "
+                        >
                           Project Highlights
                         </p>
 
-
-                        <div className="
-                          mt-3
-                          flex
-                          flex-wrap
-                          gap-2
-                        ">
-
+                        <div
+                          className="
+                            mt-2.5
+                            flex
+                            flex-wrap
+                            gap-1.5
+                          "
+                        >
                           {project.tags.map(
                             (tag) => (
-
                               <span
                                 key={tag}
                                 className="
@@ -784,30 +698,27 @@ export default function SampleWork() {
                                   border
                                   border-indigo-100
                                   bg-indigo-50
-                                  px-3
-                                  py-1.5
-                                  text-[10px]
+                                  px-2.5
+                                  py-1
+                                  text-[9px]
                                   font-semibold
                                   text-indigo-500
                                 "
                               >
                                 {tag}
                               </span>
-
                             )
                           )}
-
                         </div>
 
-
-                        {/* Case Study */}
+                        {/* View Sample */}
 
                         <button
                           onClick={(event) =>
                             event.stopPropagation()
                           }
                           className="
-                            mt-7
+                            mt-5
                             flex
                             w-fit
                             items-center
@@ -816,9 +727,9 @@ export default function SampleWork() {
                             border
                             border-indigo-200
                             bg-white
-                            px-6
-                            py-3
-                            text-sm
+                            px-5
+                            py-2.5
+                            text-xs
                             font-semibold
                             text-indigo-600
                             shadow-sm
@@ -828,31 +739,31 @@ export default function SampleWork() {
                             hover:bg-indigo-50
                           "
                         >
-                          View Case Study
+                          View Sample
 
-                          <span className="
-                            transition-transform
-                            duration-300
-                            group-hover:translate-x-1
-                          ">
+                          <span
+                            className="
+                              transition-transform
+                              duration-300
+                              group-hover:translate-x-1
+                            "
+                          >
                             →
                           </span>
-
                         </button>
-
                       </div>
-
 
                       {/* ================= IMAGE ================= */}
 
-                      <div className="
-                        relative
-                        min-h-[280px]
-                        overflow-hidden
-                        bg-indigo-50
-                        md:min-h-full
-                      ">
-
+                      <div
+                        className="
+                          relative
+                          min-h-[230px]
+                          overflow-hidden
+                          bg-indigo-50
+                          md:min-h-full
+                        "
+                      >
                         <img
                           src={project.image}
                           alt={project.title}
@@ -869,74 +780,69 @@ export default function SampleWork() {
                           "
                         />
 
-
                         {/* Image overlay */}
 
-                        <div className="
-                          absolute
-                          inset-0
-                          bg-gradient-to-r
-                          from-white/20
-                          via-transparent
-                          to-transparent
-                        " />
-
+                        <div
+                          className="
+                            absolute
+                            inset-0
+                            bg-gradient-to-r
+                            from-white/15
+                            via-transparent
+                            to-transparent
+                          "
+                        />
 
                         {/* Number */}
 
-                        <div className="
-                          absolute
-                          right-5
-                          top-5
-                          rounded-full
-                          border
-                          border-white/60
-                          bg-white/80
-                          px-4
-                          py-2
-                          text-xs
-                          font-bold
-                          text-indigo-500
-                          shadow-lg
-                          shadow-indigo-100/40
-                          backdrop-blur-md
-                        ">
+                        <div
+                          className="
+                            absolute
+                            right-4
+                            top-4
+                            rounded-full
+                            border
+                            border-white/60
+                            bg-white/80
+                            px-3
+                            py-1.5
+                            text-[10px]
+                            font-bold
+                            text-indigo-500
+                            shadow-md
+                            backdrop-blur-md
+                          "
+                        >
                           {String(
                             project.realIndex + 1
                           ).padStart(2, "0")}{" "}
                           /{" "}
-                          {String(
-                            TOTAL
-                          ).padStart(2, "0")}
+                          {String(TOTAL).padStart(
+                            2,
+                            "0"
+                          )}
                         </div>
-
                       </div>
-
                     </div>
-
                   </motion.article>
-
                 );
               }
             )}
-
           </div>
-
         </div>
-
 
         {/* ================= DOTS ================= */}
 
-        <div className="
-          mt-3
-          flex
-          justify-center
-          gap-2
-        ">
-
+        <div
+          className="
+            mt-1
+            flex
+            justify-center
+            gap-1.5
+          "
+        >
           {projects.map(
             (project, index) => (
-
               <button
                 key={project.title}
                 onClick={() =>
@@ -950,26 +856,22 @@ export default function SampleWork() {
                   duration-300
 
                   ${
-                    index ===
-                    activeIndex
-                      ? "w-8 bg-indigo-500"
+                    index === activeIndex
+                      ? "w-7 bg-indigo-500"
                       : "w-1.5 bg-indigo-100 hover:bg-indigo-200"
                   }
                 `}
               />
-
             )
           )}
-
         </div>
-
 
         {/* ================= BOTTOM CTA ================= */}
 
         <motion.div
           initial={{
             opacity: 0,
-            y: 20,
+            y: 15,
           }}
           whileInView={{
             opacity: 1,
@@ -979,22 +881,23 @@ export default function SampleWork() {
             once: true,
           }}
           transition={{
-            duration: 0.5,
+            duration: 0.45,
           }}
           className="
-            mt-14
+            mt-10
             text-center
           "
         >
-
-          <p className="
-            mb-5
-            text-sm
-            text-slate-400
-          ">
+          <p
+            className="
+              mb-4
+              text-xs
+              text-slate-400
+              sm:text-sm
+            "
+          >
             Want content like this for your business?
           </p>
-
 
           <a
             href="/contact"
@@ -1003,31 +906,28 @@ export default function SampleWork() {
               items-center
               rounded-full
               bg-indigo-500
-              px-8
-              py-3.5
-              text-sm
+              px-7
+              py-3
+              text-xs
               font-bold
               text-white
-              shadow-lg
+              shadow-md
               shadow-indigo-100
               transition-all
               duration-300
-              hover:-translate-y-1
+              hover:-translate-y-0.5
               hover:bg-indigo-600
+              sm:text-sm
             "
           >
             Start Your Project
 
-            <span className="ml-2 text-lg">
+            <span className="ml-2 text-base">
               →
             </span>
-
           </a>
-
         </motion.div>
-
       </div>
-
     </section>
   );
 }

@@ -11,53 +11,53 @@ import {
 
 const reviews = [
   {
-    name: "Rohan Mehta",
+    name: "Ryvian Westmere—SaaS",
     role: "MBA Student",
     university: "University of Birmingham",
-    service: "Dissertation Writing",
-    text: "The writer understood my brief immediately and delivered a well-structured dissertation that was easy to follow. The referencing and research quality were especially impressive.",
+    service: "Better Intent, Better Leads",
+    text: "Our old blogs were getting traffic but not enough qualified leads. ContentVanta reshaped them around search intent and buyer questions. The new structure feels much more useful and focused.",
     initials: "RM",
   },
   {
-    name: "Sarah Williams",
+    name: "Xavren Colewick—Consulting",
     role: "Postgraduate Student",
     university: "University of Manchester",
-    service: "Academic Writing",
-    text: "What stood out was the attention to my university guidelines. The work followed my requirements closely, and the revision process was quick and genuinely helpful.",
+    service: "A Voice That Fits",
+    text: "Our website copy felt too generic and didn’t sound like us. The ContentVanta team understood our tone, simplified the messaging, and made each service page feel much closer to our brand.",
     initials: "SW",
   },
   {
-    name: "Arjun Patel",
+    name: "Tavren Caldwell—Technology",
     role: "International Student",
     university: "University of Melbourne",
-    service: "Assignment Help",
-    text: "I needed help with a difficult subject and was matched with someone who actually knew the topic. The final assignment was clear, properly referenced and delivered on time.",
+    service: "More Than Keyword Stuffing",
+    text: "We needed SEO content, but we didn’t want articles packed with keywords. The team balanced search relevance with clear explanations and industry context. The content now feels written for people first.",
     initials: "AP",
   },
   {
-    name: "Emily Carter",
+    name: "Elvric Wensley—E-commerce",
     role: "Undergraduate Student",
     university: "University of Leeds",
-    service: "Essay Writing",
-    text: "The biggest difference for me was the communication. I could explain exactly what I needed and the writer followed the brief without making the process complicated.",
+    service: "Reliable Content Support",
+    text: "Keeping up with our content calendar was becoming difficult. ContentVanta gave us a smoother writing and editing process, with clear communication and revisions when something needed changing.",
     initials: "EC",
   },
-  {
-    name: "Daniel Brown",
-    role: "Master's Student",
-    university: "King's College London",
-    service: "Research Paper",
-    text: "Excellent research and a very professional structure. My feedback was incorporated properly and the final paper felt genuinely tailored to my requirements.",
-    initials: "DB",
-  },
-  {
-    name: "Olivia Smith",
-    role: "PhD Student",
-    university: "University of Edinburgh",
-    service: "Research Support",
-    text: "The research support was exactly what I needed. Everything was clearly organised and the writer paid close attention to the academic requirements I provided.",
-    initials: "OS",
-  },
+  // {
+  //   name: "Daniel Brown",
+  //   role: "Master's Student",
+  //   university: "King's College London",
+  //   service: "Research Paper",
+  //   text: "Excellent research and a very professional structure. My feedback was incorporated properly and the final paper felt genuinely tailored to my requirements.",
+  //   initials: "DB",
+  // },
+  // {
+  //   name: "Olivia Smith",
+  //   role: "PhD Student",
+  //   university: "University of Edinburgh",
+  //   service: "Research Support",
+  //   text: "The research support was exactly what I needed. Everything was clearly organised and the writer paid close attention to the academic requirements I provided.",
+  //   initials: "OS",
+  // },
 ];
 
 const colors = [
@@ -375,10 +375,10 @@ export default function Reviews() {
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-[46px] md:leading-[1.15]">
 
-            Client Experiences That{" "}
+            What Businesses Say About Our {" "}
 
             <span className="text-[#203f7a]">
-              Speak For Us
+              Content Writing Service
             </span>
 
           </h2>
@@ -386,8 +386,9 @@ export default function Reviews() {
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
 
-            Hear directly from students who trusted our expert writers
-            for assignments, essays, dissertations and research work.
+            Real feedback should talk about real problems, useful content, 
+            and the difference it made, not just say “great service.”
+
 
           </p>
 

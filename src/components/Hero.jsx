@@ -42,10 +42,11 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="mx-auto max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight text-[#111111] sm:text-6xl md:text-7xl lg:text-8xl">
-            Content that{" "}
+          {/* Professional Content Writing Services That Build Visibility, Trust, and Growth */}
+          <h2 className="mx-auto max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight text-[#111111] sm:text-6xl md:text-7xl lg:text-8xl">
+            Professional Content{" "}
             <span className="relative inline-block">
-              connects
+              Writing
               <motion.span
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
@@ -53,8 +54,8 @@ export default function Hero() {
                 className="absolute -bottom-2 left-0 h-2 rounded-full bg-lime-400"
               />
             </span>{" "}
-            with your audience
-          </h1>
+            Services That Build Visibility, Trust, and Growth
+          </h2>
         </motion.div>
 
         {/* Description */}
@@ -65,13 +66,13 @@ export default function Hero() {
           className="mx-auto mt-8 max-w-3xl"
         >
           <p className="text-lg leading-8 text-slate-600 md:text-xl">
-            We create strategic content that helps businesses attract attention,
-            build trust, and turn visitors into real customers.
+            Is your content getting ignored? This can hurt your visibility.
+            It can also cost you leads. Our content writing services use vetted writers.
           </p>
 
           <p className="mt-2 text-lg leading-8 text-slate-600 md:text-xl">
-            From SEO-focused articles to compelling website copy, every word
-            is crafted with your brand and audience in mind.
+             We also use expert editors and focus on industry knowledge. Get clear, affordable, quality content with 0 grammar mistakes and 0% plagiarism. 
+             Our content builds trust and helps improve search visibility.
           </p>
         </motion.div>
 
@@ -86,21 +87,21 @@ export default function Hero() {
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-lime-300">
               ✓
             </span>
-            Human-crafted content
+            Vetted Writers
           </div>
 
           <div className="flex items-center gap-2">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-lime-300">
               ✓
             </span>
-            SEO-focused strategy
+            Original, Fact-Checked Content
           </div>
 
           <div className="flex items-center gap-2">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-xs text-lime-300">
               ✓
             </span>
-            Delivered on time
+            On-Time Delivery
           </div>
         </motion.div>
 
