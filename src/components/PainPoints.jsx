@@ -92,15 +92,15 @@ export default function PainPoints() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-500">
+          {/* <span className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-500">
             Our Content Services
-          </span>
+          </span> */}
 
           <h2 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight text-slate-800 md:text-5xl">
-            Why Choose Our
+            What Professional
             <br />
             <span className="text-indigo-500">
-              Professional SEO Content Writers?
+              SEO Content Writing Services Do We Offer?
             </span>
           </h2>
 

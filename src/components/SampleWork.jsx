@@ -408,7 +408,7 @@ export default function SampleWork() {
 
           {/* Portfolio Button */}
 
-          <motion.a
+          {/* <motion.a
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -441,7 +441,7 @@ export default function SampleWork() {
             View Portfolio
 
             <span>→</span>
-          </motion.a>
+          </motion.a> */}
         </div>
 
         {/* ================= CAROUSEL ================= */}
@@ -888,7 +888,7 @@ export default function SampleWork() {
             text-center
           "
         >
-          <p
+          {/* <p
             className="
               mb-4
               text-xs
@@ -897,7 +897,7 @@ export default function SampleWork() {
             "
           >
             Want content like this for your business?
-          </p>
+          </p> */}
 
           <a
             href="/contact"

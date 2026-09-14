@@ -141,11 +141,11 @@ export default function About() {
 
               <div className="h-8 w-px bg-slate-200" />
 
-              <p className="text-sm text-slate-500">
+              {/* <p className="text-sm text-slate-500">
                 Strategy <span className="mx-2 text-indigo-400">•</span>
                 Creativity <span className="mx-2 text-indigo-400">•</span>
                 Technology
-              </p>
+              </p> */}
             </div>
           </div>
 

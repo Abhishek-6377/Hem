@@ -191,9 +191,9 @@ export default function Process() {
                 </span>
               </h3>
 
-              <p className="mt-2 text-xs text-slate-500">
+              {/* <p className="mt-2 text-xs text-slate-500">
                 Five steps. One clear goal.
-              </p>
+              </p> */}
             </div>
           </motion.div>
 
@@ -375,9 +375,9 @@ export default function Process() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 text-center"
         >
-          <p className="mb-5 text-sm text-slate-500">
+          {/* <p className="mb-5 text-sm text-slate-500">
             Ready to turn your brief into content that makes an impact?
-          </p>
+          </p> */}
 
           <a
             href="/contact"

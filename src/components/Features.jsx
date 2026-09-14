@@ -52,7 +52,7 @@ export default function Features() {
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Section Heading */}
         <div className="mx-auto max-w-4xl text-center">
-          <motion.span
+          {/* <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -60,7 +60,7 @@ export default function Features() {
             className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-600"
           >
             Why Choose ContentVanta
-          </motion.span>
+          </motion.span> */}
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -145,9 +145,9 @@ export default function Features() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-16 text-center"
         >
-          <p className="mb-5 text-sm text-slate-500">
+          {/* <p className="mb-5 text-sm text-slate-500">
             Ready to get content that works for your business?
-          </p>
+          </p> */}
 
           <a
             href="/contact"

@@ -136,7 +136,7 @@ export default function Industries() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-4xl text-center">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -146,7 +146,7 @@ export default function Industries() {
             <span className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
               Industries We Serve
             </span>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -234,7 +234,7 @@ export default function Industries() {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -252,7 +252,7 @@ export default function Industries() {
             Start a Conversation
             <span className="ml-2 text-lg">→</span>
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

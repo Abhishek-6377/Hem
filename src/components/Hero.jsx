@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
 
         {/* Small Label */}
-        <motion.div
+        {/* <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -34,29 +34,38 @@ export default function Hero() {
         >
           <span className="h-2 w-2 rounded-full bg-lime-400" />
           Content that makes your business stand out
-        </motion.div>
+        </motion.div> */}
 
         {/* Heading */}
-        <motion.div
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Professional Content Writing Services That Build Visibility, Trust, and Growth */}
-          <h2 className="mx-auto max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight text-[#111111] sm:text-6xl md:text-7xl lg:text-8xl">
-            Professional Content{" "}
-            <span className="relative inline-block">
-              Writing
-              <motion.span
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 0.8, duration: 0.7 }}
-                className="absolute -bottom-2 left-0 h-2 rounded-full bg-lime-400"
-              />
-            </span>{" "}
-            Services That Build Visibility, Trust, and Growth
-          </h2>
-        </motion.div>
+<motion.div
+  initial={{ y: 40, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.8 }}
+>
+  <h4 className="mx-auto max-w-6xl text-4xl font-bold leading-[1.08] tracking-tight text-[#111111] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+    
+    {/* First Line */}
+    <span className="block whitespace-normal md:whitespace-nowrap">
+      Content That Builds{" "}
+      <span className="relative inline-block">
+        Visibility
+        <motion.span
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          transition={{ delay: 0.8, duration: 0.7 }}
+          className="absolute -bottom-1 md:-bottom-2 left-0 h-1.5 md:h-2 rounded-full bg-lime-400"
+        />
+      </span>
+    </span>
+
+    {/* Second Line */}
+    <span className="block whitespace-normal md:whitespace-nowrap">
+      Trust, Authority & Growth
+    </span>
+
+  </h4>
+</motion.div>
+
 
         {/* Description */}
         <motion.div
@@ -66,13 +75,14 @@ export default function Hero() {
           className="mx-auto mt-8 max-w-3xl"
         >
           <p className="text-lg leading-8 text-slate-600 md:text-xl">
-            Is your content getting ignored? This can hurt your visibility.
-            It can also cost you leads. Our content writing services use vetted writers.
+            Get high-quality content that attracts the right audience,
+            builds credibility, and turns visitors into customers.
           </p>
 
           <p className="mt-2 text-lg leading-8 text-slate-600 md:text-xl">
-             We also use expert editors and focus on industry knowledge. Get clear, affordable, quality content with 0 grammar mistakes and 0% plagiarism. 
-             Our content builds trust and helps improve search visibility.
+            Our vetted writers and expert editors create clear,
+            original, fact-checked, and SEO-friendly content tailored
+            to your industry and business goals.
           </p>
         </motion.div>
 
@@ -122,14 +132,14 @@ export default function Hero() {
         </motion.div>
 
         {/* Bottom Trust Text */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
           className="mt-8 text-sm text-slate-400"
         >
           Strategy • Creativity • Results
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );

@@ -256,49 +256,50 @@ export default function Comparison() {
 
             <div
               className="
-                bg-gradient-to-br
-                from-indigo-600
-                to-indigo-500
-                px-6
-                py-6
-              "
+    bg-gradient-to-br
+    from-indigo-600
+    to-indigo-500
+    px-6
+    py-6
+  "
             >
               <span
                 className="
-                  text-[9px]
-                  font-bold
-                  uppercase
-                  tracking-[0.2em]
-                  text-indigo-100
-                "
+      text-[9px]
+      font-bold
+      uppercase
+      tracking-[0.2em]
+      text-indigo-100
+    "
               >
                 ContentVanta
               </span>
 
               <h3
                 className="
-                  mt-2
-                  text-2xl
-                  font-extrabold
-                  leading-tight
-                  text-white
-                "
+      mt-2
+      text-xl
+      font-extrabold
+      leading-snug
+      tracking-tight
+      text-white
+      sm:text-2xl
+    "
               >
-                Turn Better Content Into Better Growth 
+                Turn Better Content Into Better Growth
               </h3>
 
               <p
                 className="
-                  mt-2
-                  text-xs
-                  leading-5
-                  text-white/85
-                  sm:text-sm
-                "
+      mt-2
+      text-xs
+      leading-5
+      text-white/85
+      sm:text-sm
+    "
               >
                 Get content that improves visibility, builds trust,
                 and helps turn readers into customers.
-
               </p>
             </div>
 
@@ -309,23 +310,23 @@ export default function Comparison() {
               <div className="flex gap-3">
                 <div
                   className="
-                    flex
-                    h-10
-                    w-10
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-lg
-                    bg-indigo-50
-                    text-indigo-600
-                  "
+        flex
+        h-10
+        w-10
+        shrink-0
+        items-center
+        justify-center
+        rounded-lg
+        bg-indigo-50
+        text-indigo-600
+      "
                 >
                   <PenLine size={20} />
                 </div>
 
                 <div>
-                  <p className="text-[11px] text-slate-400">
-                    We'll delever
+                  <p className="text-[11px] font-medium text-slate-400">
+                    Written by Experts
                   </p>
 
                   <p className="text-sm font-bold text-slate-800">
@@ -337,23 +338,23 @@ export default function Comparison() {
               <div className="flex gap-3">
                 <div
                   className="
-                    flex
-                    h-10
-                    w-10
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-lg
-                    bg-indigo-50
-                    text-indigo-600
-                  "
+        flex
+        h-10
+        w-10
+        shrink-0
+        items-center
+        justify-center
+        rounded-lg
+        bg-indigo-50
+        text-indigo-600
+      "
                 >
                   <Search size={20} />
                 </div>
 
                 <div>
-                  <p className="text-[11px] text-slate-400">
-                    You'll get
+                  <p className="text-[11px] font-medium text-slate-400">
+                    Built Around Your Audience
                   </p>
 
                   <p className="text-sm font-bold text-slate-800">
@@ -365,23 +366,23 @@ export default function Comparison() {
               <div className="flex gap-3">
                 <div
                   className="
-                    flex
-                    h-10
-                    w-10
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-lg
-                    bg-indigo-50
-                    text-indigo-600
-                  "
+        flex
+        h-10
+        w-10
+        shrink-0
+        items-center
+        justify-center
+        rounded-lg
+        bg-indigo-50
+        text-indigo-600
+      "
                 >
                   <BadgeCheck size={20} />
                 </div>
 
                 <div>
-                  <p className="text-[11px] text-slate-400">
-                    Support across
+                  <p className="text-[11px] font-medium text-slate-400">
+                    Delivered When Promised
                   </p>
 
                   <p className="text-sm font-bold text-slate-800">
@@ -393,25 +394,25 @@ export default function Comparison() {
               <a
                 href="#contact"
                 className="
-                  flex
-                  w-full
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  bg-indigo-500
-                  px-5
-                  py-3
-                  text-xs
-                  font-bold
-                  text-white
-                  shadow-md
-                  shadow-indigo-100
-                  transition
-                  hover:-translate-y-0.5
-                  hover:bg-indigo-600
-                  sm:text-sm
-                "
+      flex
+      w-full
+      items-center
+      justify-center
+      gap-2
+      rounded-full
+      bg-indigo-500
+      px-5
+      py-3
+      text-xs
+      font-bold
+      text-white
+      shadow-md
+      shadow-indigo-100
+      transition
+      hover:-translate-y-0.5
+      hover:bg-indigo-600
+      sm:text-sm
+    "
               >
                 Start Your Content Project
 
@@ -436,7 +437,7 @@ export default function Comparison() {
                 md:grid
               "
             >
-              <div
+              {/* <div
                 className="
                   flex
                   items-center
@@ -446,7 +447,7 @@ export default function Comparison() {
                 "
               >
                 Factor
-              </div>
+              </div> */}
 
               <div
                 className="
@@ -628,11 +629,10 @@ export default function Comparison() {
                             items-center
                             justify-center
                             rounded-md
-                            ${
-                              genericValues[index] ===
+                            ${genericValues[index] ===
                               "Limited"
-                                ? "bg-amber-50"
-                                : "bg-slate-50"
+                              ? "bg-amber-50"
+                              : "bg-slate-50"
                             }
                           `}
                         >
@@ -643,16 +643,15 @@ export default function Comparison() {
                               gap-1
                               text-[10px]
                               font-bold
-                              ${
-                                genericValues[index] ===
+                              ${genericValues[index] ===
                                 "Limited"
-                                  ? "text-amber-600"
-                                  : "text-slate-500"
+                                ? "text-amber-600"
+                                : "text-slate-500"
                               }
                             `}
                           >
                             {genericValues[index] ===
-                            "Limited" ? (
+                              "Limited" ? (
                               <X
                                 size={13}
                                 strokeWidth={3}
@@ -752,16 +751,15 @@ export default function Comparison() {
                               py-1.5
                               text-[10px]
                               font-bold
-                              ${
-                                genericValues[index] ===
+                              ${genericValues[index] ===
                                 "Limited"
-                                  ? "bg-amber-50 text-amber-600"
-                                  : "bg-slate-50 text-slate-500"
+                                ? "bg-amber-50 text-amber-600"
+                                : "bg-slate-50 text-slate-500"
                               }
                             `}
                           >
                             {genericValues[index] ===
-                            "Limited" ? (
+                              "Limited" ? (
                               <X
                                 size={13}
                                 strokeWidth={3}
@@ -789,7 +787,7 @@ export default function Comparison() {
 
         {/* ================= BOTTOM TRUST STRIP ================= */}
 
-        <motion.div
+        {/* <motion.div
           initial={{
             opacity: 0,
             y: 12,
@@ -860,7 +858,7 @@ export default function Comparison() {
             Editorially Reviewed
           </span>
 
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

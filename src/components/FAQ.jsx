@@ -59,9 +59,9 @@ export default function FAQ() {
       <div className="relative max-w-4xl mx-auto px-6">
         {/* Section Heading */}
         <div className="text-center">
-          <span className="inline-block px-4 py-2 mb-5 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full">
+          {/* <span className="inline-block px-4 py-2 mb-5 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full">
             FAQ
-          </span>
+          </span> */}
 
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
             Questions Businesses Ask Before Hiring Content Writers

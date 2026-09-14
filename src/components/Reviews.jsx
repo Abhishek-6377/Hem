@@ -364,13 +364,13 @@ export default function Reviews() {
           className="mx-auto max-w-3xl text-center"
         >
 
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#203f7a]/10 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#203f7a] shadow-sm">
+          {/* <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#203f7a]/10 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#203f7a] shadow-sm">
 
             <PenLine size={14} />
 
-            Student Experiences
+            Client Experiences
 
-          </div>
+          </div> */}
 
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-[46px] md:leading-[1.15]">
@@ -401,7 +401,7 @@ export default function Reviews() {
 
           {/* Verified */}
 
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
+          {/* <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
 
             <CheckCircle2
               size={17}
@@ -410,12 +410,12 @@ export default function Reviews() {
 
             Verified Experiences
 
-          </div>
+          </div> */}
 
 
           {/* Rating */}
 
-          <div className="flex items-center gap-1">
+          {/* <div className="flex items-center gap-1">
 
             {[1, 2, 3, 4, 5].map((star) => (
 
@@ -432,14 +432,14 @@ export default function Reviews() {
               4.9/5
             </span>
 
-          </div>
+          </div> */}
 
 
-          <div className="text-sm font-medium text-slate-600">
+          {/* <div className="text-sm font-medium text-slate-600">
 
             Trusted Academic Writing Support
 
-          </div>
+          </div> */}
 
         </div>
 
