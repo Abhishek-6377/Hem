@@ -45,23 +45,28 @@ export default function Hero() {
   <h4 className="mx-auto max-w-6xl text-4xl font-bold leading-[1.08] tracking-tight text-[#111111] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
     
     {/* First Line */}
-    <span className="block whitespace-normal md:whitespace-nowrap">
-      Content That Builds{" "}
+    <span className="block">
+      Professional Content Writing Services
+    </span>
+
+    {/* Second Line */}
+    {/* <span className="block">
       <span className="relative inline-block">
-        Visibility
+        Services
         <motion.span
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ delay: 0.8, duration: 0.7 }}
-          className="absolute -bottom-1 md:-bottom-2 left-0 h-1.5 md:h-2 rounded-full bg-lime-400"
+          className="absolute bottom-[-4px] left-0 h-1.5 w-full rounded-full bg-lime-400 md:bottom-[-6px] md:h-2"
         />
-      </span>
-    </span>
+      </span>{" "}
+      That Build
+    </span> */}
 
-    {/* Second Line */}
-    <span className="block whitespace-normal md:whitespace-nowrap">
-      Trust, Authority & Growth
-    </span>
+    {/* Third Line */}
+    {/* <span className="block">
+      Visibility, Trust, and Growth
+    </span> */}
 
   </h4>
 </motion.div>
@@ -75,14 +80,16 @@ export default function Hero() {
           className="mx-auto mt-8 max-w-3xl"
         >
           <p className="text-lg leading-8 text-slate-600 md:text-xl">
-            Get high-quality content that attracts the right audience,
-            builds credibility, and turns visitors into customers.
+            Is your content getting ignored? This can hurt your visibility. 
+            It can also cost you leads. Our content writing services use vetted writers.
+
           </p>
 
           <p className="mt-2 text-lg leading-8 text-slate-600 md:text-xl">
-            Our vetted writers and expert editors create clear,
-            original, fact-checked, and SEO-friendly content tailored
-            to your industry and business goals.
+            We also use expert editors and focus on industry knowledge. 
+            Get clear, affordable, quality content with 0 grammar mistakes and 0% plagiarism. 
+            Our content builds trust and helps improve search visibility.
+
           </p>
         </motion.div>
 
