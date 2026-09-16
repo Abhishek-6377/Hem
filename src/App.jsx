@@ -28,7 +28,7 @@ function HomePage() {
         <About />
         <Stats />
         <PainPoints />
-        <CTA />
+        <FinalCTA />
         <Industries />
         <Features />
         

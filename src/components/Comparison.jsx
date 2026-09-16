@@ -71,7 +71,7 @@ const comparisonValues = [
   "Yes",
 ];
 
-const genericValues = [
+const approachValues = [
   "Varies",
   "Varies",
   "Limited",
@@ -180,21 +180,28 @@ export default function Comparison() {
           </span>
 
           <h2
-            className="
-              mt-3
-              text-3xl
-              font-extrabold
-              tracking-tight
-              text-slate-800
-              sm:text-4xl
-              md:text-5xl
-            "
-          >
-            Why ContentVanta Is Built Differently{" "}
-            <span className="text-indigo-500">
-              From Generic Content Services
-            </span>
-          </h2>
+  className="
+    mx-auto
+    mt-3
+    max-w-[850px]
+    text-3xl
+    font-extrabold
+    leading-[1.15]
+    tracking-tight
+    text-slate-800
+    sm:text-4xl
+    md:text-5xl
+  "
+>
+  <span className="block whitespace-nowrap">
+    Why ContentVanta Is Built Differently
+  </span>
+
+  <span className="block whitespace-nowrap text-indigo-500">
+    Through Our Content Approach
+  </span>
+</h2>
+
 
           <p
             className="
@@ -256,47 +263,47 @@ export default function Comparison() {
 
             <div
               className="
-    bg-gradient-to-br
-    from-indigo-600
-    to-indigo-500
-    px-6
-    py-6
-  "
+                bg-gradient-to-br
+                from-indigo-600
+                to-indigo-500
+                px-6
+                py-6
+              "
             >
               <span
                 className="
-      text-[9px]
-      font-bold
-      uppercase
-      tracking-[0.2em]
-      text-indigo-100
-    "
+                  text-[9px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-indigo-100
+                "
               >
                 ContentVanta
               </span>
 
               <h3
                 className="
-      mt-2
-      text-xl
-      font-extrabold
-      leading-snug
-      tracking-tight
-      text-white
-      sm:text-2xl
-    "
+                  mt-2
+                  text-xl
+                  font-extrabold
+                  leading-snug
+                  tracking-tight
+                  text-white
+                  sm:text-2xl
+                "
               >
                 Turn Better Content Into Better Growth
               </h3>
 
               <p
                 className="
-      mt-2
-      text-xs
-      leading-5
-      text-white/85
-      sm:text-sm
-    "
+                  mt-2
+                  text-xs
+                  leading-5
+                  text-white/85
+                  sm:text-sm
+                "
               >
                 Get content that improves visibility, builds trust,
                 and helps turn readers into customers.
@@ -310,16 +317,16 @@ export default function Comparison() {
               <div className="flex gap-3">
                 <div
                   className="
-        flex
-        h-10
-        w-10
-        shrink-0
-        items-center
-        justify-center
-        rounded-lg
-        bg-indigo-50
-        text-indigo-600
-      "
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-indigo-50
+                    text-indigo-600
+                  "
                 >
                   <PenLine size={20} />
                 </div>
@@ -338,16 +345,16 @@ export default function Comparison() {
               <div className="flex gap-3">
                 <div
                   className="
-        flex
-        h-10
-        w-10
-        shrink-0
-        items-center
-        justify-center
-        rounded-lg
-        bg-indigo-50
-        text-indigo-600
-      "
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-indigo-50
+                    text-indigo-600
+                  "
                 >
                   <Search size={20} />
                 </div>
@@ -366,16 +373,16 @@ export default function Comparison() {
               <div className="flex gap-3">
                 <div
                   className="
-        flex
-        h-10
-        w-10
-        shrink-0
-        items-center
-        justify-center
-        rounded-lg
-        bg-indigo-50
-        text-indigo-600
-      "
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-indigo-50
+                    text-indigo-600
+                  "
                 >
                   <BadgeCheck size={20} />
                 </div>
@@ -394,25 +401,25 @@ export default function Comparison() {
               <a
                 href="#contact"
                 className="
-      flex
-      w-full
-      items-center
-      justify-center
-      gap-2
-      rounded-full
-      bg-indigo-500
-      px-5
-      py-3
-      text-xs
-      font-bold
-      text-white
-      shadow-md
-      shadow-indigo-100
-      transition
-      hover:-translate-y-0.5
-      hover:bg-indigo-600
-      sm:text-sm
-    "
+                  flex
+                  w-full
+                  items-center
+                  justify-center
+                  gap-2
+                  rounded-full
+                  bg-indigo-500
+                  px-5
+                  py-3
+                  text-xs
+                  font-bold
+                  text-white
+                  shadow-md
+                  shadow-indigo-100
+                  transition
+                  hover:-translate-y-0.5
+                  hover:bg-indigo-600
+                  sm:text-sm
+                "
               >
                 Start Your Content Project
 
@@ -437,17 +444,8 @@ export default function Comparison() {
                 md:grid
               "
             >
-              {/* <div
-                className="
-                  flex
-                  items-center
-                  text-xs
-                  font-semibold
-                  text-slate-400
-                "
-              >
-                Factor
-              </div> */}
+
+              {/* ContentVanta */}
 
               <div
                 className="
@@ -464,6 +462,8 @@ export default function Comparison() {
                 ContentVanta
               </div>
 
+              {/* Our Approach */}
+
               <div
                 className="
                   rounded-lg
@@ -476,7 +476,7 @@ export default function Comparison() {
                   text-slate-600
                 "
               >
-                Generic Services
+                Our Approach
               </div>
             </div>
 
@@ -620,7 +620,7 @@ export default function Comparison() {
                           </span>
                         </div>
 
-                        {/* Generic */}
+                        {/* Our Approach */}
 
                         <div
                           className={`
@@ -629,8 +629,7 @@ export default function Comparison() {
                             items-center
                             justify-center
                             rounded-md
-                            ${genericValues[index] ===
-                              "Limited"
+                            ${approachValues[index] === "Limited"
                               ? "bg-amber-50"
                               : "bg-slate-50"
                             }
@@ -643,15 +642,13 @@ export default function Comparison() {
                               gap-1
                               text-[10px]
                               font-bold
-                              ${genericValues[index] ===
-                                "Limited"
+                              ${approachValues[index] === "Limited"
                                 ? "text-amber-600"
                                 : "text-slate-500"
                               }
                             `}
                           >
-                            {genericValues[index] ===
-                              "Limited" ? (
+                            {approachValues[index] === "Limited" ? (
                               <X
                                 size={13}
                                 strokeWidth={3}
@@ -663,7 +660,7 @@ export default function Comparison() {
                               />
                             )}
 
-                            {genericValues[index]}
+                            {approachValues[index]}
                           </span>
                         </div>
                       </div>
@@ -739,7 +736,7 @@ export default function Comparison() {
                             ContentVanta
                           </div>
 
-                          {/* Generic */}
+                          {/* Our Approach */}
 
                           <div
                             className={`
@@ -751,15 +748,13 @@ export default function Comparison() {
                               py-1.5
                               text-[10px]
                               font-bold
-                              ${genericValues[index] ===
-                                "Limited"
+                              ${approachValues[index] === "Limited"
                                 ? "bg-amber-50 text-amber-600"
                                 : "bg-slate-50 text-slate-500"
                               }
                             `}
                           >
-                            {genericValues[index] ===
-                              "Limited" ? (
+                            {approachValues[index] === "Limited" ? (
                               <X
                                 size={13}
                                 strokeWidth={3}
@@ -771,7 +766,7 @@ export default function Comparison() {
                               />
                             )}
 
-                            {genericValues[index]}
+                            {approachValues[index]}
                           </div>
 
                         </div>

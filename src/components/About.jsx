@@ -80,12 +80,12 @@ export default function About() {
   className="
     max-w-[600px]
     text-4xl
-    font-bold
+    font-extrabold
     leading-[1.05]
     tracking-[-0.04em]
     text-slate-950
     sm:text-5xl
-    lg:text-[48px]
+    
   "
 >
   ContentVanta: Your Expert Content

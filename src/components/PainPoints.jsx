@@ -96,13 +96,30 @@ export default function PainPoints() {
             Our Content Services
           </span> */}
 
-          <h2 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight text-slate-800 md:text-5xl">
-            What Professional
-            <br />
-            <span className="text-indigo-500">
-              SEO Content Writing Services Do We Offer?
-            </span>
-          </h2>
+          <h1
+  className="
+    mx-auto
+    mt-3
+    max-w-5xl
+    text-center
+    text-4xl
+    font-extrabold
+    leading-[1.15]
+    tracking-tight
+    text-slate-800
+    sm:text-4xl
+    md:text-5xl
+  "
+>
+  <span className="block">
+    What Professional SEO Content
+  </span>
+
+  <span className="mt-1 block text-indigo-500">
+    Writing Services Do We Offer?
+  </span>
+</h1>
+
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-500 md:text-lg">
             From search-focused blogs to conversion-led pages, our content
@@ -183,7 +200,7 @@ export default function PainPoints() {
 
         {/* ================= CTA ================= */}
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -200,7 +217,7 @@ export default function PainPoints() {
               →
             </span>
           </a>
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

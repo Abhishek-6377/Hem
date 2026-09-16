@@ -153,7 +153,12 @@ export default function Industries() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl"
+            className="
+            text-4xl 
+            font-extrabold 
+            tracking-tight 
+            text-slate-900 
+            sm:text-5xl"
           >
             Affordable Content Writing Services{" "}
             <span className="text-blue-600">for Every Industry</span>

@@ -368,17 +368,14 @@ export default function Process() {
 
         {/* ================= CTA ================= */}
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 text-center"
         >
-          {/* <p className="mb-5 text-sm text-slate-500">
-            Ready to turn your brief into content that makes an impact?
-          </p> */}
-
+          
           <a
             href="/contact"
             className="inline-flex items-center rounded-full bg-indigo-600 px-9 py-4 text-sm font-bold text-white shadow-lg shadow-indigo-200 transition-all duration-300 hover:-translate-y-1 hover:bg-indigo-700 hover:shadow-xl"
@@ -386,7 +383,7 @@ export default function Process() {
             Request for Quote
             <span className="ml-2 text-lg">→</span>
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
@@ -515,7 +512,17 @@ function CircleArrow({ Icon, className, active }) {
 
 
 
-// old and first version code 
+
+
+
+
+
+
+
+
+
+
+// ----------------------old and first version code ----------------------------
 
 // import { motion } from "framer-motion";
 // import {

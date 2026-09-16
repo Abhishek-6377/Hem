@@ -45,14 +45,14 @@ export default function FinalCTA() {
             Get Free Consultation →
           </motion.a>
 
-          <motion.a
+          {/* <motion.a
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
             href="/services"
             className="px-12 py-4 rounded-full border border-indigo-300 text-indigo-600 font-semibold hover:bg-indigo-50 transition"
           >
             View Services
-          </motion.a>
+          </motion.a> */}
         </motion.div>
       </div>
     </section>
