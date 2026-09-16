@@ -6,6 +6,7 @@ import Industries from "./components/Industries";
 import Features from "./components/Features";
 import Stats from "./components/Stats";
 import Process from "./components/Process";
+import CTA from "./components/CTA";
 import SampleWork from "./components/SampleWork";
 import Comparison from "./components/Comparison";
 import Reviews from "./components/Reviews";
@@ -27,17 +28,19 @@ function HomePage() {
         <About />
         <Stats />
         <PainPoints />
+        <CTA />
         <Industries />
         <Features />
         
         <Process />
+        <FinalCTA />
         <SampleWork />
         <Comparison />
         <Reviews />
         {/* <Pricing /> */}
         <FAQ />
         {/* <Contact /> */}
-        {/* <FinalCTA /> */}
+        
         <Footer />
       </div>
     </>

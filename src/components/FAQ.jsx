@@ -51,108 +51,130 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute -top-24 -left-24 w-72 h-72 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 py-20 sm:py-24 md:py-32">
 
-      <div className="relative max-w-4xl mx-auto px-6">
-        {/* Section Heading */}
-        <div className="text-center">
-          {/* <span className="inline-block px-4 py-2 mb-5 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full">
-            FAQ
-          </span> */}
+  {/* Background Decorations */}
+  <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" />
+  <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-cyan-200/30 blur-3xl" />
 
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-            Questions Businesses Ask Before Hiring Content Writers
-          </h2>
+  <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 
-          <p className="mt-5 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Choosing a content partner is not just about price. Businesses
-            want quality, fast delivery, strong research, and content with a
-            real purpose.
-          </p>
-        </div>
+    {/* Section Heading */}
+    <div className="mx-auto max-w-4xl text-center">
+      <h2 className="text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
+        Questions Businesses Ask Before Hiring Content Writers
+      </h2>
 
-        {/* FAQ List */}
-        <div className="mt-14 space-y-4">
-          {faqs.map((f, i) => {
-            const isOpen = open === i;
+      <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
+        Choosing a content partner is not just about price. Businesses
+        want quality, fast delivery, strong research, and content with a
+        real purpose.
+      </p>
+    </div>
 
-            return (
-              <div
-                key={i}
-                className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 ${
-                  isOpen
-                    ? "shadow-lg border-indigo-100"
-                    : "hover:shadow-md"
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => toggleFAQ(i)}
-                  aria-expanded={isOpen}
-                  className="w-full p-6 text-left cursor-pointer"
-                >
-                  <div className="flex items-center justify-between gap-6">
-                    <h3 className="text-lg font-semibold text-slate-900">
-                      {f.q}
-                    </h3>
+    {/* FAQ List */}
+    <div className="mx-auto mt-14 w-full max-w-6xl space-y-4">
+      {faqs.map((f, i) => {
+        const isOpen = open === i;
 
-                    <span
-                      className={`flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full text-xl font-medium transition-all duration-300 ${
-                        isOpen
-                          ? "bg-indigo-600 text-white"
-                          : "bg-slate-100 text-slate-700"
-                      }`}
-                    >
-                      {isOpen ? "−" : "+"}
-                    </span>
-                  </div>
-                </button>
+        return (
+          <div
+            key={i}
+            className={`overflow-hidden rounded-2xl border bg-white transition-all duration-300 ${
+              isOpen
+                ? "border-indigo-100 shadow-lg"
+                : "border-slate-100 shadow-sm hover:shadow-md"
+            }`}
+          >
+            <button
+              type="button"
+              onClick={() => toggleFAQ(i)}
+              aria-expanded={isOpen}
+              className="w-full cursor-pointer p-5 text-left sm:p-6"
+            >
+              <div className="flex items-center justify-between gap-6">
+                <h3 className="text-base font-semibold text-slate-900 sm:text-lg">
+                  {f.q}
+                </h3>
 
-                {/* Answer */}
-                <div
-                  className={`grid transition-all duration-300 ease-in-out ${
+                <span
+                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xl font-medium transition-all duration-300 ${
                     isOpen
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0"
+                      ? "bg-indigo-600 text-white"
+                      : "bg-slate-100 text-slate-700"
                   }`}
                 >
-                  <div className="overflow-hidden">
-                    <div className="px-6 pb-6">
-                      <div className="h-px bg-slate-100 mb-5" />
+                  {isOpen ? "−" : "+"}
+                </span>
+              </div>
+            </button>
 
-                      <p className="text-slate-600 leading-relaxed">
-                        {f.a}
-                      </p>
-                    </div>
-                  </div>
+            <div
+              className={`grid transition-all duration-300 ease-in-out ${
+                isOpen
+                  ? "grid-rows-[1fr] opacity-100"
+                  : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="px-5 pb-6 sm:px-6">
+                  <div className="mb-5 h-px bg-slate-100" />
+
+                  <p className="leading-relaxed text-slate-600">
+                    {f.a}
+                  </p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    {/* CTA */}
+    <div className="mt-20 w-full overflow-hidden rounded-[28px] bg-gradient-to-br from-slate-50 to-indigo-50/40 px-6 py-8 shadow-sm ring-1 ring-slate-200/70 sm:px-10 sm:py-10 md:mt-24 md:px-14 md:py-12 lg:px-16">
+
+      <div className="grid items-center gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-12 lg:gap-16">
+
+        {/* Image */}
+        <div className="relative order-2 flex items-end justify-center md:order-1 md:justify-start">
+          <div className="absolute bottom-0 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-indigo-100/60 blur-3xl" />
+
+          <img
+            src="https://d1dedewa7t70lf.cloudfront.net/crinpro/media/solutionPageImages/black-coat-main-cta-image.webp"
+            alt="Content writing expert"
+            className="relative z-10 h-auto w-full max-w-[300px] object-contain sm:max-w-[360px] md:max-w-[400px]"
+          />
         </div>
 
-        {/* CTA */}
-        <div className="mt-20 text-center">
-          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
+        {/* Content */}
+        <div className="order-1 text-center md:order-2 md:text-left">
+
+          <h3 className="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[44px]">
             Ready to Replace Generic Content With Content That Converts?
           </h3>
 
-          <p className="mt-5 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-relaxed md:mx-0">
             Get researched, human-led content that builds trust, improves
             visibility, and turns the right readers into customers.
           </p>
 
           <button
             type="button"
-            className="mt-8 inline-flex items-center justify-center px-7 py-3.5 bg-indigo-600 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/20 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all duration-300"
+            className="group mt-7 inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/15 transition-all duration-300 hover:-translate-y-1 hover:bg-indigo-600 hover:shadow-indigo-600/20 sm:text-base"
           >
             Get Started
+
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
           </button>
+
         </div>
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
   );
 }
