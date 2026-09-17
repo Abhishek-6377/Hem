@@ -1,15 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#painPoint" },
+    { name: "About", href: "#about", isRoute: false },
+    { name: "Services", href: "/blog-writing-service", isRoute: true },
     // { name: "Pricing", href: "#pricing" },
-    { name: "Work", href: "#work" },
-    { name: "Contact", href: "#contact" },
+    { name: "Work", href: "#work", isRoute: false },
+    { name: "Contact", href: "#contact", isRoute: false },
   ];
 
   return (
@@ -29,9 +30,15 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-8 text-slate-700 font-medium">
           {links.map((link) => (
             <li key={link.name}>
-              <a href={link.href} className="hover:text-indigo-600 transition">
-                {link.name}
-              </a>
+              {link.isRoute ? (
+                <Link to={link.href} className="hover:text-indigo-600 transition">
+                  {link.name}
+                </Link>
+              ) : (
+                <a href={link.href} className="hover:text-indigo-600 transition">
+                  {link.name}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -64,13 +71,23 @@ export default function Navbar() {
             <ul className="flex flex-col px-6 py-6 gap-4 text-slate-700 font-medium">
               {links.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-2 hover:text-indigo-600 transition"
-                  >
-                    {link.name}
-                  </a>
+                  {link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-2 hover:text-indigo-600 transition"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-2 hover:text-indigo-600 transition"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
 

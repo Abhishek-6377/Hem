@@ -18,6 +18,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Pricing from "./components/Pricing";
 import ContactPage from "./pages/Contact";
+import BlogWritingService from "./pages/BlogWritingService";
 
 function HomePage() {
   return (
@@ -28,19 +29,19 @@ function HomePage() {
         <About />
         <Stats />
         <PainPoints />
-        <FinalCTA />
+        <CTA />
         <Industries />
         <Features />
         
         <Process />
-        <FinalCTA />
+        <CTA />
         <SampleWork />
         <Comparison />
         <Reviews />
         {/* <Pricing /> */}
         <FAQ />
         {/* <Contact /> */}
-        
+        {/* <FinalCTA /> */}
         <Footer />
       </div>
     </>
@@ -52,6 +53,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/blog-writing-service" element={<BlogWritingService />} />
       <Route path="*" element={<HomePage />} />
     </Routes>
   );
