@@ -34,14 +34,14 @@ function HomePage() {
         <Features />
         
         <Process />
-        <CTA />
+        <FinalCTA />
         <SampleWork />
         <Comparison />
         <Reviews />
         {/* <Pricing /> */}
         <FAQ />
         {/* <Contact /> */}
-        {/* <FinalCTA /> */}
+        
         <Footer />
       </div>
     </>
