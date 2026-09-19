@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/image.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -8,7 +9,6 @@ export default function Navbar() {
   const links = [
     { name: "About", href: "#about", isRoute: false },
     { name: "Services", href: "/blog-writing-service", isRoute: true },
-    // { name: "Pricing", href: "#pricing" },
     { name: "Work", href: "#work", isRoute: false },
     { name: "Contact", href: "#contact", isRoute: false },
   ];
@@ -19,23 +19,33 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-indigo-600">
-          Brand<span className="text-cyan-500">Pro</span>
-        </h1>
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="Content Vanta"
+            className="w-[170px] md:w-[200px] h-auto object-contain"
+          />
+        </Link>
 
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-8 text-slate-700 font-medium">
           {links.map((link) => (
             <li key={link.name}>
               {link.isRoute ? (
-                <Link to={link.href} className="hover:text-indigo-600 transition">
+                <Link
+                  to={link.href}
+                  className="hover:text-indigo-600 transition"
+                >
                   {link.name}
                 </Link>
               ) : (
-                <a href={link.href} className="hover:text-indigo-600 transition">
+                <a
+                  href={link.href}
+                  className="hover:text-indigo-600 transition"
+                >
                   {link.name}
                 </a>
               )}
@@ -91,7 +101,6 @@ export default function Navbar() {
                 </li>
               ))}
 
-              {/* Mobile CTA */}
               <button
                 onClick={() => setOpen(false)}
                 className="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500 text-white font-semibold shadow"
@@ -104,4 +113,4 @@ export default function Navbar() {
       </AnimatePresence>
     </motion.nav>
   );
-}
+} 
